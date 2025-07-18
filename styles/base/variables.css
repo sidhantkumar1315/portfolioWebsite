@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #2c3e50;
+    --text-primary: #444;
+    --text-secondary: #555;
+    --text-light: #666;
+    --text-lighter: #777;
+    --bg-white: #fff;
+    --bg-light: #f8f9fa;
+    --border-light: #e0e0e0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --menu-height: 32px;
+    --dock-size: 70px;
+}
