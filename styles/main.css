@@ -1,0 +1,4 @@
+/* importing every css files here */
+@import "./base/reset.css";
+@import "./base/variables.css";
+@import "./components/laptop.css";
