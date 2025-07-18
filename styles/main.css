@@ -2,3 +2,6 @@
 @import "./base/reset.css";
 @import "./base/variables.css";
 @import "./components/laptop.css";
+@import "./components/dock.css";
+@import "./components/hero.css";
+@import "./components/menu-bar.css";

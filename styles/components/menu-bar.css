@@ -1,0 +1,59 @@
+.menu-bar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    height: var(--menu-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 14px;
+    position: relative;
+    z-index: 999;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-left,
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.menu-right { gap: 18px; }
+
+.apple-logo,
+.app-name {
+    color: #000;
+}
+
+.apple-logo {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.app-name {
+    font-weight: 600;
+}
+
+.menu-item {
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.menu-item:hover { color: #000; }
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dark-mode-toggle {
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
