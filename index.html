@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidhant Kumar - Portfolio</title>
+</head>
+
+<body>
+    <!-- Laptop Container -->
+    <div class="laptop-container" id="laptop-container">
+        <div class="laptop-screen">
+            <!-- MacBook Screen - Inner Screen -->
+            <div class="macbook-screen">
+                <!-- Notch -->
+                <div class="notch"></div>
+
+                <!-- Menu Bar (Mac Style) -->
+                <div class="menu-bar">
+                    <div class="menu-left">
+                        <!-- Got icons from 
+                        URL: https://emojicombos.com/ -->
+                        <span class="apple-logo"></span>
+                        <span class="app-name" id="current-app">Finder</span>
+                        <span class="menu-item">File</span>
+                        <span class="menu-item">Edit</span>
+                        <span class="menu-item">View</span>
+                        <span class="menu-item">Window</span>
+                        <span class="menu-item">Help</span>
+                    </div>
+                    <div class="menu-right">
+                        <span class="menu-icon">🔍</span>
+                        <span class="menu-icon">ᯤ</span>
+                        <span class="menu-icon">𓈆</span>
+                        <span class="menu-icon dark-mode-toggle" id="dark-mode-toggle" title="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon"></i>
+                        </span>
+                        <span class="time" id="current-time">5:33 PM</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Area -->
+                <div class="desktop" id="desktop">
+                    <!-- Hero Introduction -->
+                    <div class="hero-intro" id="hero-intro">
+                        <div class="intro-content">
+                            <h1>Hello, I am</h1>
+                            <h2 class="name-title">Sidhant Kumar</h2>
+                            <p class="summary">
+                                A third-year <strong>Computer Science</strong> student at Dalhousie University.<br>
+                                I am driven by curiosity and a passion for creating impactful, real world solutions
+                                through technology.
+                            </p>
+                            <div class="role-container">
+                                <p class="role-text">I'm a
+                                    <span class="role-wrapper">
+                                        <span class="current-role">Computer Science Student</span>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="cta-container">
+                                <p class="subtitle">Welcome to my portfolio website.</p>
+                                <div class="arrow-down">↓</div>
+                                <p class="hint">Click on the dock icons to explore</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dock at bottom -->
+                    <div class="dock">
+                        <div class="dock-item" data-app="finder" data-tooltip="Finder">
+                            <div class="dock-icon"><i class="fa-solid fa-folder"></i></div>
+                        </div>
+                        <div class="dock-item" data-app="about" data-tooltip="About Me">
+                            <div class="dock-icon"><i class="fa-solid fa-user"></i></div>
+                        </div>
+                        <div class="dock-item" data-app="projects" data-tooltip="Projects">
+                            <div class="dock-icon"><i class="fa-solid fa-code"></i></div>
+                        </div>
+                        <div class="dock-item" data-app="education" data-tooltip="Education">
+                            <div class="dock-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        </div>
+                        <div class="dock-item" data-app="contact" data-tooltip="Contact">
+                            <div class="dock-icon"><i class="fa-solid fa-envelope"></i></div>
+                        </div>
+                        <div class="dock-item" data-app="pokedex" data-tooltip="Pokedex">
+                            <div class="dock-icon pokeball-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="11" stroke="#444" stroke-width="2" />
+                                    <circle cx="12" cy="12" r="4" fill="#444" />
+                                    <path d="M1 12H23" stroke="#444" stroke-width="2" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fullscreen App Container -->
+                <div id="fullscreen-app" class="fullscreen-app">
+                    <div class="app-header">
+                        <div class="traffic-lights">
+                            <div class="traffic-light close" id="close-btn"></div>
+                            <div class="traffic-light minimize" id="minimize-btn"></div>
+                            <div class="traffic-light maximize" id="maximize-btn"></div>
+                        </div>
+                        <div class="app-title-bar">
+                            <span id="app-title"></span>
+                        </div>
+                    </div>
+                    <div class="app-content" id="app-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
