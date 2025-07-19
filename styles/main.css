@@ -7,3 +7,5 @@
 @import "./components/menu-bar.css";
 @import "./utilities/animations.css";
 @import "./components/app-window.css";
+@import "./layout/desktop.css";
+@import "./layout/responsive.css";

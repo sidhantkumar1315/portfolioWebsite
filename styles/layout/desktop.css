@@ -1,0 +1,9 @@
+.desktop {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa, #eef2f6);
+    height: calc(100% - var(--menu-height));
+}
