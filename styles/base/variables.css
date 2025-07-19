@@ -1,4 +1,10 @@
 :root {
+    
+    --laptop-width: 98.5vw;
+    --laptop-max-width: 1800px;
+    --laptop-aspect-ratio: 16/8.7;
+
+
     --primary-color: #2c3e50;
     --text-primary: #444;
     --text-secondary: #555;

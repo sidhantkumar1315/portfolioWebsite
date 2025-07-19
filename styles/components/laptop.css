@@ -1,7 +1,7 @@
 .laptop-container {
-    width: 95vw;
-    max-width: 1800px;
-    aspect-ratio: 1200/700;
+    width: var(--laptop-width);
+    max-width: var(--laptop-max-width);
+    aspect-ratio: var(--laptop-aspect-ratio);
     height: auto;
 }
 
