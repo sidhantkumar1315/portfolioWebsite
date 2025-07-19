@@ -4,13 +4,14 @@
     position: relative;
     padding: 0 20px;
     max-width: 1000px;
+    margin-top: -95px;
 }
 
 .intro-content h1 {
     font-size: 56px;
     font-weight: 300;
     color: var(--text-primary);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     letter-spacing: -0.5px;
 }
 
@@ -18,7 +19,7 @@
     font-size: 92px;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     letter-spacing: -1.5px;
 }
 
@@ -26,7 +27,7 @@
     font-size: 24px;
     color: var(--text-secondary);
     max-width: 800px;
-    margin: 0 auto 40px;
+    margin: 0 auto 25px;
     line-height: 1.6;
     font-weight: 300;
 }
@@ -35,6 +36,11 @@
     color: var(--primary-color);
     font-weight: 500;
 }
+
+.role-container {
+    margin-bottom: 20px;
+}
+
 
 .role-text {
     color: var(--text-secondary);
@@ -49,12 +55,12 @@
     padding: 0 5px;
 }
 
-.cta-container { margin-top: 60px; }
+.cta-container { margin-top: 20px; }
 
 .subtitle {
     font-size: 24px;
     color: var(--text-light);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-weight: 300;
 }
 
@@ -62,7 +68,7 @@
     font-size: 36px;
     color: var(--text-light);
     animation: bounce 2s infinite;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     opacity: 0.8;
 }
 
