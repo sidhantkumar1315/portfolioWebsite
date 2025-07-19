@@ -1,0 +1,159 @@
+/* Fullscreen App */
+.fullscreen-app {
+    position: absolute;
+    top: var(--menu-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.fullscreen-app.active { display: flex; }
+
+.app-header {
+    background: #f6f6f6;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.5px solid rgba(0,0,0,0.1);
+}
+
+.traffic-light.close { background: #ff5f57; }
+.traffic-light.minimize { background: #ffbd2e; }
+.traffic-light.maximize { background: #28ca42; }
+
+.traffic-light:hover.close { background: #ff3b30; }
+.traffic-light:hover.minimize { background: #ffaa00; }
+.traffic-light:hover.maximize { background: #00d400; }
+
+.app-title-bar {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.app-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+    background: white;
+}
+
+.app-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.app-content h3 {
+    color: var(--primary-color);
+    margin: 30px 0 18px;
+    font-size: 24px;
+}
+
+.app-content p {
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.app-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.app-content ul li {
+    padding: 10px 0 10px 30px;
+    color: var(--text-primary);
+    position: relative;
+    font-size: 17px;
+}
+
+.app-content ul li::before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 30px;
+    transition: var(--transition);
+    background: #fafafa;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: #3498db;
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.project-card p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+/* Scrollbar */
+.app-content::-webkit-scrollbar { width: 10px; }
+.app-content::-webkit-scrollbar-track { background: #f1f1f1; }
+.app-content::-webkit-scrollbar-thumb { 
+    background: #3498db; 
+    border-radius: 5px; 
+}
+.app-content::-webkit-scrollbar-thumb:hover { background: #2980b9; }
+
+/* Pokedex */
+.pokedex-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.pokedex-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.app-content.no-padding { padding: 0; }

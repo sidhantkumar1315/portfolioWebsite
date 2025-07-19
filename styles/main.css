@@ -5,3 +5,5 @@
 @import "./components/dock.css";
 @import "./components/hero.css";
 @import "./components/menu-bar.css";
+@import "./utilities/animations.css";
+@import "./components/app-window.css";
