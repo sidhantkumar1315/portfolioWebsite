@@ -1,4 +1,3 @@
-// App configurations with your actual information
 const appConfigs = {
     finder: {
         name: 'Finder',
@@ -154,6 +153,59 @@ const appConfigs = {
                 <iframe src="https://sidhantkumar1315.github.io/Pokedex/" 
                         frameborder="0" 
                         allowfullscreen></iframe>
+            </div>
+        `
+    },
+    'tic-tac-toe': {
+        name: 'Tic Tac Toe',
+        title: 'Tic Tac Toe Game',
+        content: `
+            <div class="tic-tac-toe-container">
+                <h2>Tic Tac Toe</h2>
+                <div class="game-mode-selection">
+                    <label>Game Mode:</label>
+                    <select id="game-mode" class="mode-select">
+                        <option value="pvp">Player vs Player</option>
+                        <option value="ai-easy">Player vs AI (Easy)</option>
+                        <option value="ai-hard">Player vs AI (Hard)</option>
+                    </select>
+                </div>
+                <div class="game-info">
+                    <div id="current-player">Current Player: <span id="player-indicator">X</span></div>
+                    <div id="game-status"></div>
+                </div>
+                <div class="game-play-area">
+                    <div class="game-board" id="game-board">
+                        <div class="cell" data-cell-index="0"></div>
+                        <div class="cell" data-cell-index="1"></div>
+                        <div class="cell" data-cell-index="2"></div>
+                        <div class="cell" data-cell-index="3"></div>
+                        <div class="cell" data-cell-index="4"></div>
+                        <div class="cell" data-cell-index="5"></div>
+                        <div class="cell" data-cell-index="6"></div>
+                        <div class="cell" data-cell-index="7"></div>
+                        <div class="cell" data-cell-index="8"></div>
+                    </div>
+                    <div class="game-sidebar">
+                        <div class="score-board">
+                            <h3>Score</h3>
+                            <div class="score">
+                                <div class="score-item">
+                                    <span id="x-label">X: <span id="x-wins">0</span></span>
+                                </div>
+                                <div class="score-item">
+                                    <span id="o-label">O: <span id="o-wins">0</span></span>
+                                </div>
+                                <div class="score-item">
+                                    <span>Draws: <span id="draws">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-controls">
+                            <button id="restart-game" class="restart-btn">New Game</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         `
     }
@@ -347,3 +399,315 @@ darkModeToggle.addEventListener('click', () => {
         if (starField) starField.remove();
     }
 });
+
+// Tic Tac Toe Game Logic
+let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let currentPlayer = 'X';
+let gameActive = false;
+let scores = { X: 0, O: 0, draws: 0 };
+let gameMode = 'pvp'; // 'pvp', 'ai-easy', 'ai-hard'
+let isAIThinking = false;
+
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+function handleCellClick(clickedCellEvent) {
+    const clickedCell = clickedCellEvent.target;
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+    if (gameBoard[clickedCellIndex] !== '' || !gameActive || isAIThinking) {
+        return;
+    }
+
+    handleCellPlayed(clickedCell, clickedCellIndex);
+    const gameEnded = handleResultValidation();
+    
+    // If it's AI mode and game is still active, let AI make a move
+    if (!gameEnded && gameMode !== 'pvp' && currentPlayer === 'O' && gameActive) {
+        isAIThinking = true;
+        const gameStatus = document.getElementById('game-status');
+        if (gameStatus) gameStatus.textContent = 'AI is thinking...';
+        
+        setTimeout(() => {
+            makeAIMove();
+            isAIThinking = false;
+        }, 500); // Small delay to show AI "thinking"
+    }
+}
+
+function handleCellPlayed(clickedCell, clickedCellIndex) {
+    gameBoard[clickedCellIndex] = currentPlayer;
+    clickedCell.textContent = currentPlayer;
+    clickedCell.classList.add('played');
+}
+
+function handlePlayerChange() {
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    updatePlayerLabels();
+}
+
+function handleResultValidation() {
+    let roundWon = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        let a = gameBoard[winCondition[0]];
+        let b = gameBoard[winCondition[1]];
+        let c = gameBoard[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            roundWon = true;
+            break;
+        }
+    }
+
+    const gameStatus = document.getElementById('game-status');
+    if (roundWon) {
+        let winMessage;
+        if (gameMode === 'pvp') {
+            winMessage = `Player ${currentPlayer} has won!`;
+        } else {
+            winMessage = currentPlayer === 'X' ? 'You won! 🎉' : 'AI won! 🤖';
+        }
+        gameStatus.textContent = winMessage;
+        gameActive = false;
+        scores[currentPlayer]++;
+        updateScoreBoard();
+        highlightWinningCells();
+        return true;
+    }
+
+    let roundDraw = !gameBoard.includes('');
+    if (roundDraw) {
+        gameStatus.textContent = 'Game ended in a draw!';
+        gameActive = false;
+        scores.draws++;
+        updateScoreBoard();
+        return true;
+    }
+
+    handlePlayerChange();
+    return false;
+}
+
+function highlightWinningCells() {
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        let a = gameBoard[winCondition[0]];
+        let b = gameBoard[winCondition[1]];
+        let c = gameBoard[winCondition[2]];
+        if (a === b && b === c && a !== '') {
+            document.querySelector(`[data-cell-index="${winCondition[0]}"]`).classList.add('winning-cell');
+            document.querySelector(`[data-cell-index="${winCondition[1]}"]`).classList.add('winning-cell');
+            document.querySelector(`[data-cell-index="${winCondition[2]}"]`).classList.add('winning-cell');
+            break;
+        }
+    }
+}
+
+function updateScoreBoard() {
+    const xWins = document.getElementById('x-wins');
+    const oWins = document.getElementById('o-wins');
+    const draws = document.getElementById('draws');
+    
+    if (xWins) xWins.textContent = scores.X;
+    if (oWins) oWins.textContent = scores.O;
+    if (draws) draws.textContent = scores.draws;
+}
+
+function handleRestartGame() {
+    gameActive = true;
+    currentPlayer = 'X';
+    gameBoard = ['', '', '', '', '', '', '', '', ''];
+    isAIThinking = false;
+    const gameStatus = document.getElementById('game-status');
+    const playerIndicator = document.getElementById('player-indicator');
+    
+    if (gameStatus) gameStatus.textContent = '';
+    if (playerIndicator) playerIndicator.textContent = currentPlayer;
+    
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.textContent = '';
+        cell.classList.remove('played', 'winning-cell');
+    });
+}
+
+// AI Logic using Minimax Algorithm
+function minimax(board, depth, isMaximizing, alpha = -Infinity, beta = Infinity) {
+    const winner = checkWinner(board);
+    
+    if (winner === 'O') return 10 - depth; // AI wins
+    if (winner === 'X') return depth - 10; // Human wins  
+    if (winner === 'draw') return 0; // Draw
+    
+    if (isMaximizing) {
+        let maxEval = -Infinity;
+        for (let i = 0; i < 9; i++) {
+            if (board[i] === '') {
+                board[i] = 'O';
+                const eval = minimax(board, depth + 1, false, alpha, beta);
+                board[i] = '';
+                maxEval = Math.max(maxEval, eval);
+                alpha = Math.max(alpha, eval);
+                if (beta <= alpha) break; // Alpha-beta pruning
+            }
+        }
+        return maxEval;
+    } else {
+        let minEval = Infinity;
+        for (let i = 0; i < 9; i++) {
+            if (board[i] === '') {
+                board[i] = 'X';
+                const eval = minimax(board, depth + 1, true, alpha, beta);
+                board[i] = '';
+                minEval = Math.min(minEval, eval);
+                beta = Math.min(beta, eval);
+                if (beta <= alpha) break; // Alpha-beta pruning
+            }
+        }
+        return minEval;
+    }
+}
+
+function checkWinner(board) {
+    // Check for winner
+    for (let condition of winningConditions) {
+        const [a, b, c] = condition;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            return board[a];
+        }
+    }
+    
+    // Check for draw
+    if (!board.includes('')) return 'draw';
+    
+    // Game continues
+    return null;
+}
+
+function makeAIMove() {
+    if (!gameActive) return;
+    
+    let bestMove = -1;
+    
+    if (gameMode === 'ai-easy') {
+        // Easy mode: 70% random, 30% optimal
+        if (Math.random() < 0.3) {
+            bestMove = getBestMove();
+        } else {
+            bestMove = getRandomMove();
+        }
+    } else if (gameMode === 'ai-hard') {
+        // Hard mode: Always optimal
+        bestMove = getBestMove();
+    }
+    
+    if (bestMove !== -1) {
+        const cell = document.querySelector(`[data-cell-index="${bestMove}"]`);
+        handleCellPlayed(cell, bestMove);
+        handleResultValidation();
+    }
+}
+
+function getBestMove() {
+    let bestScore = -Infinity;
+    let bestMove = -1;
+    
+    for (let i = 0; i < 9; i++) {
+        if (gameBoard[i] === '') {
+            gameBoard[i] = 'O';
+            const score = minimax(gameBoard, 0, false);
+            gameBoard[i] = '';
+            
+            if (score > bestScore) {
+                bestScore = score;
+                bestMove = i;
+            }
+        }
+    }
+    
+    return bestMove;
+}
+
+function getRandomMove() {
+    const availableMoves = [];
+    for (let i = 0; i < 9; i++) {
+        if (gameBoard[i] === '') {
+            availableMoves.push(i);
+        }
+    }
+    return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+}
+
+function initializeTicTacToe() {
+    const cells = document.querySelectorAll('.cell');
+    const restartButton = document.getElementById('restart-game');
+    const gameModeSelect = document.getElementById('game-mode');
+    
+    if (cells.length > 0) {
+        gameActive = true;
+        cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+    }
+    
+    if (restartButton) {
+        restartButton.addEventListener('click', handleRestartGame);
+    }
+    
+    if (gameModeSelect) {
+        gameModeSelect.addEventListener('change', (e) => {
+            gameMode = e.target.value;
+            handleRestartGame();
+            updatePlayerLabels();
+        });
+        gameMode = gameModeSelect.value;
+    }
+    
+    updateScoreBoard();
+    updatePlayerLabels();
+}
+
+function updatePlayerLabels() {
+    const currentPlayerDiv = document.getElementById('current-player');
+    const xLabel = document.getElementById('x-label');
+    const oLabel = document.getElementById('o-label');
+    
+    // Update current player display
+    if (currentPlayerDiv && gameMode !== 'pvp') {
+        if (currentPlayer === 'X') {
+            currentPlayerDiv.innerHTML = 'Your Turn: <span id="player-indicator">X</span>';
+        } else {
+            currentPlayerDiv.innerHTML = 'AI Turn: <span id="player-indicator">O</span>';
+        }
+    } else if (currentPlayerDiv) {
+        currentPlayerDiv.innerHTML = 'Current Player: <span id="player-indicator">' + currentPlayer + '</span>';
+    }
+    
+    // Update scoreboard labels based on game mode
+    if (gameMode === 'pvp') {
+        if (xLabel) xLabel.innerHTML = 'X: <span id="x-wins">' + scores.X + '</span>';
+        if (oLabel) oLabel.innerHTML = 'O: <span id="o-wins">' + scores.O + '</span>';
+    } else {
+        if (xLabel) xLabel.innerHTML = 'You: <span id="x-wins">' + scores.X + '</span>';
+        if (oLabel) oLabel.innerHTML = 'AI: <span id="o-wins">' + scores.O + '</span>';
+    }
+}
+
+// Override the openApp function to handle tic-tac-toe initialization
+const originalOpenApp = openApp;
+window.openApp = function(appName) {
+    originalOpenApp(appName);
+    
+    if (appName === 'tic-tac-toe') {
+        setTimeout(initializeTicTacToe, 100);
+    }
+};

@@ -24,6 +24,7 @@
 .traffic-lights {
     display: flex;
     gap: 8px;
+    
 }
 
 .traffic-light {
@@ -32,6 +33,21 @@
     border-radius: 50%;
     cursor: pointer;
     border: 0.5px solid rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.traffic-light::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .traffic-light.close { background: #ff5f57; }
@@ -41,6 +57,19 @@
 .traffic-light:hover.close { background: #ff3b30; }
 .traffic-light:hover.minimize { background: #ffaa00; }
 .traffic-light:hover.maximize { background: #00d400; }
+
+.traffic-light.close::after { background: #ff5f57; }
+.traffic-light.minimize::after { background: #ffbd2e; }
+.traffic-light.maximize::after { background: #28ca42; }
+
+.traffic-light:hover::after {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.8);
+}
+
+.traffic-light:active {
+    transform: scale(0.9);
+}
 
 .app-title-bar {
     flex: 1;
@@ -57,43 +86,124 @@
     background: white;
 }
 
+
 .app-content h2 {
-    color: var(--primary-color);
-    margin-bottom: 30px;
-    font-size: 36px;
+    font-size: 48px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+    animation: fadeInUp 0.6s ease;
+}
+.app-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #3498db;
+    animation: expandWidth 0.8s ease 0.3s forwards;
 }
 
 .app-content h3 {
-    color: var(--primary-color);
-    margin: 30px 0 18px;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50; 
+    margin: 40px 0 20px;
+    position: relative;
+    animation: fadeInUp 0.6s ease 0.2s backwards;
 }
 
+
+body.dark-mode .app-content h2 {
+    color: #ffffff; 
+}
+
+body.dark-mode .app-content h2::after {
+    background: #64b5f6;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 .app-content p {
-    color: var(--text-primary);
+    color: #444;
     line-height: 1.8;
     margin-bottom: 20px;
     font-size: 17px;
+    animation: fadeIn 0.8s ease backwards;
 }
 
-.app-content ul {
-    list-style: none;
-    padding: 0;
+
+.app-content strong {
+    color: #2c3e50;
+    font-weight: 600;
+    position: relative;
 }
+
 
 .app-content ul li {
-    padding: 10px 0 10px 30px;
-    color: var(--text-primary);
+    padding: 12px 0 12px 35px;
+    color: #444;
     position: relative;
     font-size: 17px;
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.6s ease backwards;
 }
 
+.app-content ul li:nth-child(1) { animation-delay: 0.1s; }
+.app-content ul li:nth-child(2) { animation-delay: 0.2s; }
+.app-content ul li:nth-child(3) { animation-delay: 0.3s; }
+.app-content ul li:nth-child(4) { animation-delay: 0.4s; }
+.app-content ul li:nth-child(5) { animation-delay: 0.5s; }
+
+
 .app-content ul li::before {
-    content: "•";
+    content: "▸";
     color: #3498db;
     font-weight: bold;
     position: absolute;
-    left: 0;
+    left: 10px;
+    transition: all 0.3s ease;
+}
+
+.app-content ul li:hover {
+    padding-left: 40px;
+    color: #2c3e50;
+}
+
+.app-content ul li:hover::before {
+    transform: translateX(5px);
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .project-grid {
@@ -110,8 +220,59 @@
     transition: var(--transition);
     background: #fafafa;
     height: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 70%
+    );
+    transition: all 0.6s;
+}
+
+.project-card:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+
+.app-content a {
+    color: #3498db;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.app-content a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3498db;
+    transition: width 0.3s ease;
+}
+
+.app-content a:hover {
+    color: #2980b9;
+}
+
+.app-content a:hover::after {
+    width: 100%;
+}
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
@@ -154,3 +315,353 @@
 }
 
 .app-content.no-padding { padding: 0; }
+
+/* Tic Tac Toe Game Styles */
+.tic-tac-toe-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tic-tac-toe-container h2 {
+    margin-bottom: 25px !important;
+    font-size: 36px !important;
+}
+
+.game-mode-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.game-mode-selection label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.mode-select {
+    padding: 8px 12px;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    background: white;
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-select:hover {
+    border-color: #2980b9;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.mode-select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+#current-player {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+#player-indicator {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    min-width: 30px;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+}
+
+#game-status {
+    font-size: 14px;
+    font-weight: 600;
+    color: #27ae60;
+    min-height: 20px;
+}
+
+.game-play-area {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    grid-gap: 8px;
+    justify-content: center;
+}
+
+.game-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 200px;
+}
+
+.cell {
+    background: white;
+    border: 2px solid #34495e;
+    font-size: 48px;
+    font-weight: bold;
+    color: #2c3e50;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    background: #f8f9fa;
+    border-color: #3498db;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cell.played {
+    cursor: not-allowed;
+    background: #ecf0f1;
+}
+
+.cell.winning-cell {
+    background: #2ecc71 !important;
+    color: white;
+    animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.game-controls {
+    margin: 0;
+}
+
+.restart-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.restart-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+}
+
+.score-board {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e9ecef;
+    margin: 0;
+}
+
+.score-board h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.score-item {
+    display: flex;
+    justify-content: center;
+}
+
+.score-item span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    text-align: center;
+}
+
+/* Dark mode support for tic-tac-toe */
+body.dark-mode .game-info,
+body.dark-mode .score-board,
+body.dark-mode .game-mode-selection {
+    background: #2c3e50;
+    border-color: #34495e;
+}
+
+body.dark-mode .game-info #current-player,
+body.dark-mode .score-item span,
+body.dark-mode .game-mode-selection label,
+body.dark-mode .score-board h3 {
+    color: #ecf0f1;
+}
+
+body.dark-mode .score-item span {
+    background: #34495e;
+    color: #ecf0f1;
+}
+
+body.dark-mode .mode-select {
+    background: #34495e;
+    color: #ecf0f1;
+    border-color: #64b5f6;
+}
+
+body.dark-mode .mode-select:hover {
+    border-color: #42a5f5;
+    box-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
+}
+
+body.dark-mode .cell {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+body.dark-mode .cell:hover {
+    background: #bdc3c7;
+}
+
+body.dark-mode .cell.played {
+    background: #95a5a6;
+}
+
+/* Responsive design for tic-tac-toe */
+@media (max-width: 768px) {
+    .tic-tac-toe-container {
+        padding: 15px;
+    }
+    
+    .tic-tac-toe-container h2 {
+        font-size: 28px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .game-mode-selection {
+        padding: 14px;
+        margin-bottom: 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-mode-selection label {
+        font-size: 14px;
+    }
+    
+    .mode-select {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+    
+    .game-info {
+        padding: 14px;
+        margin-bottom: 25px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .game-play-area {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        grid-gap: 6px;
+    }
+    
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+        border-radius: 6px;
+        border-width: 1px;
+    }
+    
+    .game-sidebar {
+        width: 100%;
+        max-width: 300px;
+        gap: 15px;
+    }
+    
+    .score-board {
+        padding: 14px;
+    }
+    
+    .score-board h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .score-item span {
+        font-size: 13px;
+        padding: 6px 12px;
+        min-width: 100px;
+    }
+    
+    .restart-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
