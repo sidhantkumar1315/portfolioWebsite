@@ -306,17 +306,66 @@ body.dark-mode .app-content h2::after {
     right: 0;
     bottom: 0;
     overflow: hidden;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
 }
 
 .pokedex-container iframe {
-    width: 100%;
-    height: 100%;
+    width: 125%;
+    height: 300%;
     border: none;
+    background: white;
+    transform: scale(0.8);
+    transform-origin: top center;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    left: -12.5%;
+    top: 0;
 }
 
-.app-content.no-padding { padding: 0; }
+.pokedex-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
 
-/* Tic Tac Toe Game Styles */
+.pokedex-override-styles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.app-content.no-padding { 
+    padding: 0; 
+}
+
+.fullscreen-app.active .app-header {
+    position: relative;
+    z-index: 10;
+    background: #f6f6f6;
+}
+
+.app-content.no-padding .pokedex-container {
+    position: relative;
+    top: 0;
+    height: 125%;
+}
+
+.app-content.no-padding {
+    overflow: hidden;
+}
+
+
 .tic-tac-toe-container {
     max-width: 600px;
     margin: 0 auto;

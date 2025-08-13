@@ -23,3 +23,21 @@
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
 }
+
+/*Toggle button*/
+.dark-mode-toggle {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle i {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-mode-toggle.switching i {
+    transform: rotateY(180deg);
+}
