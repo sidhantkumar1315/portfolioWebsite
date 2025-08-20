@@ -8,6 +8,8 @@
 @import "./utilities/animations.css";
 @import "./components/app-window.css";
 @import "./components/ai-chat.css";
+@import "./components/projects.css";
+@import "./components/contact-form.css";
 @import "./layout/desktop.css";
 @import "./layout/responsive.css";
 @import "./themes/dark-mode.css";
