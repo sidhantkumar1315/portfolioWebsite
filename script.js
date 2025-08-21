@@ -350,13 +350,12 @@ const appConfigs = {
                         <input type="text" 
                                id="chat-input" 
                                class="chat-input" 
-                               placeholder="Ask about Sidhant's experience, projects, or skills..." 
-                               disabled>
-                        <button id="send-button" class="send-button" disabled>
+                               placeholder="Ask about Sidhant's experience, projects, or skills...">
+                        <button id="send-button" class="send-button">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
-                    <div class="api-setup-notice" id="api-setup-notice">
+                    <div class="api-setup-notice" id="api-setup-notice" style="display: none;">
                         <div class="setup-content">
                             <i class="fa-solid fa-exclamation-triangle"></i>
                             <span>To use the AI chat, please add your free Google Gemini API key.</span>
@@ -1423,12 +1422,14 @@ function initializeAIChat() {
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
     
-    // Check if API key exists and test it
-    if (geminiApiKey) {
-        testExistingApiKey();
-    } else {
-        updateApiStatus(false);
+    // Auto-setup with demo key if no key exists
+    if (!geminiApiKey) {
+        geminiApiKey = 'AIzaSyAL0kRV4zgBcmDQr9k7EYI2gYKBCK4hQgM';
+        localStorage.setItem('gemini-api-key', geminiApiKey);
     }
+    
+    // Test the API key
+    testExistingApiKey();
     
     if (chatInput) {
         chatInput.addEventListener('keypress', (e) => {
