@@ -1363,6 +1363,9 @@ async function testExistingApiKey() {
     if (!geminiApiKey) return false;
     
     try {
+        console.log('Testing API key on:', window.location.hostname);
+        console.log('Protocol:', window.location.protocol);
+        
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`, {
             method: 'POST',
             headers: {
@@ -1377,7 +1380,11 @@ async function testExistingApiKey() {
             })
         });
         
+        console.log('Response status:', response.status);
+        console.log('Response headers:', [...response.headers.entries()]);
+        
         const result = await response.json();
+        console.log('API Response:', result);
         
         if (response.ok && result.candidates) {
             isApiKeyValid = true;
@@ -1385,16 +1392,28 @@ async function testExistingApiKey() {
             enableChat();
             return true;
         } else {
-            // Invalid key, remove it
-            localStorage.removeItem('gemini-api-key');
-            geminiApiKey = null;
+            console.error('API Error:', result);
+            // Don't remove key on GitHub Pages, might be temporary issue
+            if (window.location.hostname !== 'sidhantkumar1315.github.io') {
+                localStorage.removeItem('gemini-api-key');
+                geminiApiKey = null;
+            }
             updateApiStatus(false);
             return false;
         }
     } catch (error) {
         console.error('API key test failed:', error);
-        localStorage.removeItem('gemini-api-key');
-        geminiApiKey = null;
+        console.error('Error details:', {
+            name: error.name,
+            message: error.message,
+            stack: error.stack
+        });
+        
+        // Don't remove key on GitHub Pages, might be temporary issue
+        if (window.location.hostname !== 'sidhantkumar1315.github.io') {
+            localStorage.removeItem('gemini-api-key');
+            geminiApiKey = null;
+        }
         updateApiStatus(false);
         return false;
     }
