@@ -115,7 +115,7 @@ const appConfigs = {
                         <p>Secured user authentication and storage with Supabase, ensuring reliability and data protection.</p>
                         <div class="project-links">
                             <a href="https://github.com/sidhantkumar1315/Groki" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://groki-app-2pfq.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://groki-app-final.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                         <p class="project-duration">Jan 2025 - Aug 2025</p>
                     </div>
