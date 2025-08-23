@@ -10,7 +10,7 @@ const appConfigs = {
                 <ul>
                     <li><strong>Status:</strong> Currently seeking opportunities for Winter 2026</li>
                     <li><strong>Education:</strong> Computer Science at Dalhousie University</li>
-                    <li><strong>CGPA:</strong> 4.09/4.3</li>
+                    <li><strong>CGPA:</strong> 4.11/4.3</li>
                     <li><strong>Location:</strong> Halifax, NS</li>
                 </ul>
             </div>
@@ -924,7 +924,7 @@ SIDHANT KUMAR
 
 EDUCATION
 Dalhousie University                                                    Sept 2023 – Present
-Bachelor of Computer Science, CGPA – 4.09/4.3                          Halifax, NS
+Bachelor of Computer Science, CGPA – 4.11/4.3                          Halifax, NS
 
 TECHNICAL SKILLS
 Languages: HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js
@@ -991,7 +991,7 @@ function printResume() {
             <section style="margin-bottom: 15px;">
                 <h2 style="font-size: 16px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 8px;">EDUCATION</h2>
                 <p style="margin: 3px 0; font-weight: bold;">Bachelor of Computer Science | Dalhousie University | Sept 2023 - Present</p>
-                <p style="margin: 3px 0; font-size: 12px;">CGPA: 4.09/4.3 | Halifax, Nova Scotia, Canada</p>
+                <p style="margin: 3px 0; font-size: 12px;">CGPA: 4.11/4.3 | Halifax, Nova Scotia, Canada</p>
                 <p style="margin: 3px 0; font-size: 12px;"><strong>Key Courses:</strong> Data Structures, Algorithms, Web Development, Database Systems, Software Engineering</p>
                 <p style="margin: 3px 0; font-size: 12px;"><strong>Awards:</strong> Dalhousie University Global Entrance Scholarship, Sexton Scholar</p>
             </section>
@@ -1114,7 +1114,7 @@ PERSONAL INFO:
 - Name: Sidhant Kumar
 - Location: Halifax, Nova Scotia, Canada
 - Current Status: Computer Science student at Dalhousie University
-- CGPA: 4.09/4.3
+- CGPA: 4.11/4.3
 - Email: sd247182@dal.ca
 - Phone: (902) 943-6901
 - LinkedIn: LinkedIn profile available
@@ -1129,7 +1129,7 @@ Software Developer – AI Trainer (Remote) at DataAnnotation (Nov 2024 – Mar 2
 
 EDUCATION:
 - Bachelor of Computer Science at Dalhousie University (Sept 2023 - Present)
-- CGPA: 4.09/4.3
+- CGPA: 4.11/4.3
 - Halifax, NS
 
 TECHNICAL SKILLS:
@@ -1169,7 +1169,7 @@ NASA Space Apps Challenge (Oct 2024) - Dalhousie University, Halifax, NS
 - Developed Python game prototype using Pygame under a 24-hour deadline
 
 CAREER HIGHLIGHTS:
-- Excellent 4.09/4.3 GPA throughout university
+- Excellent 4.11/4.3 GPA throughout university
 - Scholarship recipient
 - Experienced in AI training and quality assurance
 - Strong background in full-stack development
