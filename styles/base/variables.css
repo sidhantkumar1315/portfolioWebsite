@@ -1,8 +1,8 @@
 :root {
     
     --laptop-width: 98.5vw;
-    --laptop-max-width: 1800px;
-    --laptop-aspect-ratio: 16/8.7;
+    --laptop-height: 98.9vh;
+    --laptop-max-width: none;
 
 
     --primary-color: #2c3e50;
@@ -17,6 +17,6 @@
     --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
     --transition: all 0.3s ease;
-    --menu-height: 32px;
-    --dock-size: 70px;
+    --menu-height: max(28px, 3vh);
+    --dock-size: max(70px, 6vh);
 }

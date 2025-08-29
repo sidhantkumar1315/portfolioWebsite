@@ -134,6 +134,7 @@ const appConfigs = {
                         <p>Added contributor statistics and repo filtering, improving productivity for teams managing multiple projects.</p>
                         <div class="project-links">
                             <a href="https://github.com/sidhantkumar1315/Gitofy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://drive.google.com/file/d/1Z9PGn96acCaL19fEXS1KEwCFMA5IpiB1/view?usp=sharing" target="_blank"><i class="fas fa-download"></i> Download APK</a>
                         </div>
                         <p class="project-duration">Jan 2025 - Aug 2025</p>
                     </div>
@@ -501,22 +502,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Traffic lights handlers
-    document.getElementById('close-btn').addEventListener('click', closeApp);
-    document.getElementById('minimize-btn').addEventListener('click', () => {
+    // Traffic lights handlers with null checks
+    const closeBtn = document.getElementById('close-btn');
+    const minimizeBtn = document.getElementById('minimize-btn');
+    const maximizeBtn = document.getElementById('maximize-btn');
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeApp);
+    if (minimizeBtn) minimizeBtn.addEventListener('click', () => {
         closeApp();
     });
-    
-    document.getElementById('maximize-btn').addEventListener('click', () => {
+    if (maximizeBtn) maximizeBtn.addEventListener('click', () => {
         console.log('Already in fullscreen');
     });
     
-    // Click on Apple logo to go back to Finder
-    document.querySelector('.apple-logo').addEventListener('click', () => {
-        if (document.getElementById('fullscreen-app').classList.contains('active')) {
-            closeApp();
-        }
-    });
+    // Click on Apple logo to go back to Finder with null check
+    const appleLogo = document.querySelector('.apple-logo');
+    if (appleLogo) {
+        appleLogo.addEventListener('click', () => {
+            if (document.getElementById('fullscreen-app').classList.contains('active')) {
+                closeApp();
+            }
+        });
+    }
     
     // Menu items functionality
     const menuItems = document.querySelectorAll('.menu-item');
