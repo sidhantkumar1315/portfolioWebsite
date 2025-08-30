@@ -67,6 +67,9 @@ const appConfigs = {
                     <button onclick="downloadResume('pdf')" style="background: #DC3545; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background 0.3s ease;">
                         📄 Download PDF
                     </button>
+                    <button onclick="printResume()" style="background: #28A745; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background 0.3s ease;">
+                        🖨️ Print Resume
+                    </button>
                 </div>
                 <p style="font-size: 0.9em; color: #888; margin-top: 15px;">
                     📧 Contact: sd247182@dal.ca | 📱 Phone: (902) 943-6901
@@ -477,8 +480,57 @@ function closeApp() {
     document.getElementById('fullscreen-app').classList.remove('active');
 }
 
+// Unique Device Visit Counter
+function generateDeviceFingerprint() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.textBaseline = 'top';
+    ctx.font = '14px Arial';
+    ctx.fillText('Device fingerprint', 2, 2);
+    
+    const fingerprint = {
+        screen: `${screen.width}x${screen.height}x${screen.colorDepth}`,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        language: navigator.language,
+        platform: navigator.platform,
+        userAgent: navigator.userAgent.substring(0, 50),
+        canvas: canvas.toDataURL(),
+        memory: navigator.deviceMemory || 'unknown',
+        cores: navigator.hardwareConcurrency || 'unknown'
+    };
+    
+    const fingerprintString = JSON.stringify(fingerprint);
+    let hash = 0;
+    for (let i = 0; i < fingerprintString.length; i++) {
+        const char = fingerprintString.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return Math.abs(hash).toString();
+}
+
+function trackUniqueVisit() {
+    const deviceId = generateDeviceFingerprint();
+    const storageKey = 'portfolio_unique_visitors';
+    
+    let visitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    
+    if (!visitors.includes(deviceId)) {
+        visitors.push(deviceId);
+        localStorage.setItem(storageKey, JSON.stringify(visitors));
+    }
+    
+    const uniqueVisitorCount = visitors.length;
+    console.log(`Number of visitors: ${uniqueVisitorCount} unique device${uniqueVisitorCount === 1 ? '' : 's'} ${uniqueVisitorCount === 1 ? 'has' : 'have'} visited this portfolio`);
+    
+    return uniqueVisitorCount;
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    // Track unique visitor
+    trackUniqueVisit();
+    
     // Start role changing after a short delay
     setTimeout(() => {
         changeRole();
@@ -1080,19 +1132,6 @@ function printResume() {
     printWindow.document.close();
 }
 
-// QR Code Generation (using qrcode.js library)
-function generateQRCode() {
-    const qrElement = document.getElementById('portfolio-qr');
-    if (qrElement && typeof QRCode !== 'undefined') {
-        new QRCode(qrElement, {
-            text: window.location.origin + window.location.pathname,
-            width: 128,
-            height: 128,
-            colorDark: "#2c3e50",
-            colorLight: "#ffffff",
-        });
-    }
-}
 
 
 
@@ -1800,8 +1839,6 @@ window.openApp = function(appName) {
     
     if (appName === 'tic-tac-toe') {
         setTimeout(initializeTicTacToe, 100);
-    } else if (appName === 'about') {
-        setTimeout(generateQRCode, 100);
     } else if (appName === 'ai-chat') {
         setTimeout(initializeAIChat, 100);
     } else if (appName === 'pokedex') {
