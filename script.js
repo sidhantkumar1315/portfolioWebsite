@@ -40,6 +40,15 @@ const appConfigs = {
             <p><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor</p>
             <p><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS</p>
             
+            <h3>Certifications</h3>
+            <ul>
+                <li>Machine Learning Specialization by Andrew Ng (Stanford University via Coursera) 
+                    <a href="assets/SupervisedML_Course1.pdf" target="_blank" style="margin-left: 10px; color: #4A90E2; text-decoration: none;">
+                        📄 View Certificate
+                    </a>
+                </li>
+            </ul>
+            
             <h3>Awards</h3>
             <ul>
                 <li>Dalhousie University Global Entrance Scholarship</li>
@@ -480,56 +489,9 @@ function closeApp() {
     document.getElementById('fullscreen-app').classList.remove('active');
 }
 
-// Unique Device Visit Counter
-function generateDeviceFingerprint() {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    ctx.textBaseline = 'top';
-    ctx.font = '14px Arial';
-    ctx.fillText('Device fingerprint', 2, 2);
-    
-    const fingerprint = {
-        screen: `${screen.width}x${screen.height}x${screen.colorDepth}`,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        language: navigator.language,
-        platform: navigator.platform,
-        userAgent: navigator.userAgent.substring(0, 50),
-        canvas: canvas.toDataURL(),
-        memory: navigator.deviceMemory || 'unknown',
-        cores: navigator.hardwareConcurrency || 'unknown'
-    };
-    
-    const fingerprintString = JSON.stringify(fingerprint);
-    let hash = 0;
-    for (let i = 0; i < fingerprintString.length; i++) {
-        const char = fingerprintString.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash;
-    }
-    return Math.abs(hash).toString();
-}
-
-function trackUniqueVisit() {
-    const deviceId = generateDeviceFingerprint();
-    const storageKey = 'portfolio_unique_visitors';
-    
-    let visitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    
-    if (!visitors.includes(deviceId)) {
-        visitors.push(deviceId);
-        localStorage.setItem(storageKey, JSON.stringify(visitors));
-    }
-    
-    const uniqueVisitorCount = visitors.length;
-    console.log(`Number of visitors: ${uniqueVisitorCount} unique device${uniqueVisitorCount === 1 ? '' : 's'} ${uniqueVisitorCount === 1 ? 'has' : 'have'} visited this portfolio`);
-    
-    return uniqueVisitorCount;
-}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    // Track unique visitor
-    trackUniqueVisit();
     
     // Start role changing after a short delay
     setTimeout(() => {
@@ -1904,8 +1866,13 @@ function handleContactSubmit(e) {
     console.log('Sending email with params:', templateParams);
     console.log('Service ID:', serviceID, 'Template ID:', templateID, 'User ID:', userID);
     
+    // Initialize EmailJS if not already done
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(userID);
+    }
+    
     // Send email using EmailJS
-    emailjs.send(serviceID, templateID, templateParams, userID)
+    emailjs.send(serviceID, templateID, templateParams)
         .then((response) => {
             console.log('Email sent successfully:', response);
             showCustomAlert('Thank you for your message, looking forward to working with you!', 'success');
