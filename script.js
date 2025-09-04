@@ -37,8 +37,9 @@ const appConfigs = {
             
             <h3>Technical Skills</h3>
             <p><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js</p>
-            <p><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor</p>
-            <p><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS</p>
+            <p><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel</p>
+            <p><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask</p>
+            <p><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas</p>
             
             <h3>Certifications</h3>
             <ul>
@@ -93,6 +94,27 @@ const appConfigs = {
             <h2>Featured Projects</h2>
             <div class="projects-container">
                 <div class="project-grid">
+                    <div class="project-card" data-project="houseprice">
+                        <div class="project-header">
+                            <h3>House Price Predictor — ML Web Application</h3>
+                            <div class="tech-badges">
+                                <span class="tech-badge python">Python</span>
+                                <span class="tech-badge flask">Flask</span>
+                                <span class="tech-badge numpy">NumPy</span>
+                                <span class="tech-badge pandas">Pandas</span>
+                                <span class="tech-badge plotly">Plotly</span>
+                            </div>
+                        </div>
+                        <p>Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms).</p>
+                        <p>Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset.</p>
+                        <p>Deployed full-stack web application with real-time predictions and interactive performance visualizations.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/sidhantkumar1315/HousePricePredictionModel" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://house-price-prediction-model-zeta.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Link</a>
+                        </div>
+                        <p class="project-duration">Aug 2025 - Sept 2025</p>
+                    </div>
+                    
                     <div class="project-card" data-project="peer">
                         <div class="project-header">
                             <h3>Peer — Collaborative Coding & Communication Platform</h3>
@@ -107,7 +129,7 @@ const appConfigs = {
                         <p>Optimized WebSocket sync to support 10+ concurrent users with minimal latency, ensuring a smooth remote teamwork experience.</p>
                         <div class="project-links">
                             <a href="https://github.com/DalCreators/Peer" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://peer-kohl.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://peer-kohl.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Link</a>
                         </div>
                         <p class="project-duration">Apr 2025 - Jul 2025</p>
                     </div>
@@ -127,7 +149,7 @@ const appConfigs = {
                         <p>Secured user authentication and storage with Supabase, ensuring reliability and data protection.</p>
                         <div class="project-links">
                             <a href="https://github.com/sidhantkumar1315/Groki" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://groki-app-final.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://groki-app-final.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Link</a>
                         </div>
                         <p class="project-duration">Jan 2025 - Aug 2025</p>
                     </div>
@@ -151,22 +173,6 @@ const appConfigs = {
                         <p class="project-duration">Jan 2025 - Aug 2025</p>
                     </div>
                     
-                    <div class="project-card" data-project="compiler">
-                        <div class="project-header">
-                            <h3>Compiler Development Project</h3>
-                            <div class="tech-badges">
-                                <span class="tech-badge python">Python</span>
-                                <span class="tech-badge regex">RegEx</span>
-                            </div>
-                        </div>
-                        <p>Designed and implemented a custom lexical analyzer and grammar-based parser in Python.</p>
-                        <p>Incorporated semantic checks to improve reliability, strengthening understanding of compiler design and language processing.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/sidhantkumar1315/Compiler" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                        <p class="project-duration">Sept 2024 - Dec 2024</p>
-                    </div>
-                    
                     <div class="project-card" data-project="pokedex">
                         <div class="project-header">
                             <h3>Pokedex Web App</h3>
@@ -180,7 +186,7 @@ const appConfigs = {
                         <p>Optimized API calls for 3x faster load times and implemented comprehensive error handling for seamless user experience.</p>
                         <div class="project-links">
                             <a href="https://github.com/sidhantkumar1315/Pokedex" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://sidhantkumar1315.github.io/Pokedex/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://sidhantkumar1315.github.io/Pokedex/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Link</a>
                         </div>
                         <p class="project-duration">Jan 2025 - Mar 2025</p>
                     </div>
@@ -201,6 +207,22 @@ const appConfigs = {
                             <a href="https://github.com/sidhantkumar1315/Email_It" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                         <p class="project-duration">Feb 2025 - April 2025</p>
+                    </div>
+                    
+                    <div class="project-card" data-project="compiler">
+                        <div class="project-header">
+                            <h3>Compiler Development Project</h3>
+                            <div class="tech-badges">
+                                <span class="tech-badge python">Python</span>
+                                <span class="tech-badge regex">RegEx</span>
+                            </div>
+                        </div>
+                        <p>Designed and implemented a custom lexical analyzer and grammar-based parser in Python.</p>
+                        <p>Incorporated semantic checks to improve reliability, strengthening understanding of compiler design and language processing.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/sidhantkumar1315/Compiler" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        <p class="project-duration">Sept 2024 - Dec 2024</p>
                     </div>
                     
                 </div>
@@ -348,8 +370,8 @@ const appConfigs = {
                                 <ul>
                                     <li>📚 Education at Dalhousie University (4.0 GPA!)</li>
                                     <li>💼 Work experience as an AI Trainer at DataAnnotation</li>
-                                    <li>🚀 Projects like Pokedex, Email System, and Compiler</li>
-                                    <li>⚡ Technical skills in Python, JavaScript, Java, and more</li>
+                                    <li>🚀 Projects like House Price Predictor, Pokedex, Email System, and Compiler</li>
+                                    <li>⚡ Technical skills in Python, JavaScript, Java, Machine Learning and more</li>
                                     <li>🎯 Career goals and achievements</li>
                                 </ul>
                                 Perfect for learning about internship readiness and technical expertise!
@@ -930,8 +952,8 @@ function updatePlayerLabels() {
 function downloadResume(format) {
     if (format === 'pdf') {
         const link = document.createElement('a');
-        link.href = './assets/SidhantKumar_Resume.pdf';
-        link.download = 'SidhantKumar_Resume.pdf';
+        link.href = './assets/Winter2026_SidhantKumar_Resume.pdf';
+        link.download = 'Winter2026_SidhantKumar_Resume.pdf';
         link.click();
     } else if (format === 'txt') {
         downloadTextResume();
@@ -941,16 +963,18 @@ function downloadResume(format) {
 function downloadTextResume() {
     const resumeText = `
 SIDHANT KUMAR
-(902) 943-6901 | sd247182@dal.ca | LinkedIn | GitHub
+(902) 943-6901 | sd247182@dal.ca | LinkedIn | GitHub | Portfolio
 
 EDUCATION
 Dalhousie University                                                    Sept 2023 – Present
 Bachelor of Computer Science, CGPA – 4.11/4.3                          Halifax, NS
+Co-op Work Term Availability: 4 months or 8 months
 
 TECHNICAL SKILLS
 Languages: HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js
-Tools: Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor
-Frameworks: Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS
+Tools: Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel
+Frameworks: Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask
+Machine Learning: Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas
 
 EXPERIENCE
 Software Developer – AI Trainer (Remote)                               Nov 2024 – Mar 2025
@@ -961,25 +985,29 @@ DataAnnotation
 • Maintained high standards for quality assurance in AI systems.
 
 PROJECTS
+House Price Predictor — ML Web Application | GitHub | Live             Aug 2025 – Sept 2025
+Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript
+• Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms).
+• Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset.
+• Engineered 16 features through data preprocessing, categorical encoding, and Z-score normalization.
+• Deployed full-stack web application with real-time predictions and interactive performance visualizations.
+
 Peer — Collaborative Coding & Communication Platform | GitHub | Live    Apr 2025 – Jul 2025
 React, Node.js, WebRTC, WebSockets
-• Built multi-user code sharing with integrated chat/video and role-based access.
-• Implemented live sync over WebSockets and designed a responsive UI for remote teamwork.
+• Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly.
+• Optimized WebSocket sync to support 10+ concurrent users with minimal latency, ensuring a smooth remote teamwork experience.
 
-Groki — AI Voice-Controlled Inventory Manager | GitHub                  Jan 2025 – Aug 2025
+Groki — AI Voice-Controlled Inventory Manager | GitHub | Live           Jan 2025 – Aug 2025
 React, Node.js, Gemini API, Supabase
-• Added wake-word activation and conversational assistance for hands-free item management.
-• Integrated Gemini AI for recipe guidance based on pantry contents; secured auth/data with Supabase.
+• Built a voice-activated inventory system with wake-word detection for true hands-free usage.
+• Integrated Gemini AI to suggest recipes from pantry contents, improving meal planning efficiency for end-users.
+• Secured user authentication and storage with Supabase, ensuring reliability and data protection.
 
-Gitofy — GitHub/GitLab Companion (Android) | GitHub                     Jan 2025 – Aug 2025
+Gitofy — GitHub/GitLab Companion (Android) | GitHub | APK              Jan 2025 – Aug 2025
 Java, Android, GitHub REST API
-• Implemented OAuth login, push notifications for tracked branches, and activity analytics.
-• Improved on-the-go repo visibility with filtered browsing and contributor stats.
-
-Compiler Development Project | GitHub                                   Sept 2024 – Dec 2024
-Python, Regular Expressions
-• Built a lexical analyzer with Python regex, a grammar-based parser, and semantic checks.
-• Strengthened understanding of compiler design and language processing.
+• Created a mobile app for on-the-go repository management, giving developers quick access to project insights.
+• Implemented OAuth login + push notifications to keep users updated on tracked branches.
+• Added contributor statistics and repo filtering, improving productivity for teams managing multiple projects.
 
 EXTRA CURRICULAR
 NASA Space Apps Challenge                                               Oct 2024
@@ -988,9 +1016,10 @@ Dalhousie University, Halifax, NS
 • Participated in brainstorming sessions to align technical ideas with project goals.
 • Developed Python game prototype using Pygame under a 24-hour deadline.
 
-AWARDS
+AWARDS & CERTIFICATIONS
 • Dalhousie University Global Entrance Scholarship.
 • Sexton Scholar.
+• Machine Learning Specialization by Andrew Ng (Stanford University via Coursera) [Certificate]
     `.trim();
     
     const blob = new Blob([resumeText], { type: 'text/plain' });
@@ -1003,66 +1032,65 @@ AWARDS
 
 function printResume() {
     const printContent = `
-        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.4;">
-            <header style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px;">
-                <h1 style="margin: 0; font-size: 24px;">SIDHANT KUMAR</h1>
-                <p style="margin: 5px 0; font-size: 12px;">(902) 943-6901 | sd247182@dal.ca | LinkedIn | GitHub</p>
+        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.3; font-size: 12px;">
+            <header style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 12px; margin-bottom: 16px;">
+                <h1 style="margin: 0; font-size: 22px; font-weight: bold;">SIDHANT KUMAR</h1>
+                <p style="margin: 4px 0; font-size: 12px;">(902) 943-6901 | sd247182@dal.ca | LinkedIn | GitHub | Portfolio</p>
             </header>
             
-            <section style="margin-bottom: 15px;">
-                <h2 style="font-size: 16px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 8px;">EDUCATION</h2>
-                <p style="margin: 3px 0; font-weight: bold;">Bachelor of Computer Science | Dalhousie University | Sept 2023 - Present</p>
-                <p style="margin: 3px 0; font-size: 12px;">CGPA: 4.11/4.3 | Halifax, Nova Scotia, Canada</p>
-                <p style="margin: 3px 0; font-size: 12px;"><strong>Key Courses:</strong> Data Structures, Algorithms, Web Development, Database Systems, Software Engineering</p>
-                <p style="margin: 3px 0; font-size: 12px;"><strong>Awards:</strong> Dalhousie University Global Entrance Scholarship, Sexton Scholar</p>
+            <section style="margin-bottom: 14px;">
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">EDUCATION</h2>
+                <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Dalhousie University | Sept 2023 – Present | Halifax, NS</p>
+                <p style="margin: 2px 0; font-size: 11px;">Bachelor of Computer Science, CGPA – 4.11/4.3 | Co-op Work Term Availability: 4 months or 8 months</p>
             </section>
             
-            <section style="margin-bottom: 15px;">
-                <h2 style="font-size: 16px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 8px;">EXPERIENCE</h2>
-                <p style="margin: 3px 0; font-weight: bold;">Software Developer - AI Trainer | DataAnnotation | Nov 2024 - Mar 2025</p>
-                <ul style="margin: 5px 0; padding-left: 20px; font-size: 12px;">
-                    <li>Reviewed AI-generated responses to ensure alignment with user requests</li>
-                    <li>Developed and tested code to enhance system functionality</li>
-                    <li>Collaborated with cross-functional teams to improve AI performance</li>
-                    <li>Maintained high standards for quality assurance in AI systems</li>
-                </ul>
+            <section style="margin-bottom: 14px;">
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">TECHNICAL SKILLS</h2>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas</p>
             </section>
             
-            <section style="margin-bottom: 15px;">
-                <h2 style="font-size: 16px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 8px;">TECHNICAL SKILLS</h2>
-                <p style="margin: 3px 0; font-size: 12px;"><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, MySQL, PHP, C, Node.js</p>
-                <p style="margin: 3px 0; font-size: 12px;"><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor</p>
-                <p style="margin: 3px 0; font-size: 12px;"><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS</p>
+            <section style="margin-bottom: 14px;">
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">EXPERIENCE</h2>
+                <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Software Developer – AI Trainer (Remote) | DataAnnotation | Nov 2024 – Mar 2025</p>
+                <p style="margin: 2px 0; font-size: 10px;">• Reviewed AI-generated responses to ensure alignment with user requests • Developed and tested code to enhance system functionality • Collaborated with cross-functional teams to improve AI performance • Maintained high standards for quality assurance in AI systems</p>
             </section>
             
-            <section style="margin-bottom: 15px;">
-                <h2 style="font-size: 16px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 8px;">PROJECTS</h2>
-                <div style="margin-bottom: 8px;">
-                    <p style="margin: 3px 0; font-weight: bold; font-size: 13px;">Peer — Collaborative Coding & Communication Platform | Apr 2025 – Jul 2025</p>
-                    <p style="margin: 3px 0; font-size: 11px;">React, Node.js, WebRTC, WebSockets</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly.</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Optimized WebSocket sync to support 10+ concurrent users with minimal latency, ensuring a smooth remote teamwork experience.</p>
+            <section style="margin-bottom: 12px;">
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">PROJECTS</h2>
+                <div style="margin-bottom: 6px;">
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">House Price Predictor — ML Web Application | Aug 2025 – Sept 2025</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms) • Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset • Deployed full-stack web application with real-time predictions and interactive performance visualizations</p>
                 </div>
-                <div style="margin-bottom: 8px;">
-                    <p style="margin: 3px 0; font-weight: bold; font-size: 13px;">Groki — AI Voice-Controlled Inventory Manager | Jan 2025 – Aug 2025</p>
-                    <p style="margin: 3px 0; font-size: 11px;">React, Node.js, Gemini API, Supabase</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Built a voice-activated inventory system with wake-word detection for true hands-free usage.</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Integrated Gemini AI to suggest recipes from pantry contents, improving meal planning efficiency for end-users.</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Secured user authentication and storage with Supabase, ensuring reliability and data protection.</p>
+                <div style="margin-bottom: 6px;">
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Peer — Collaborative Coding & Communication Platform | Apr 2025 – Jul 2025</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">React, Node.js, WebRTC, WebSockets</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly • Optimized WebSocket sync to support 10+ concurrent users with minimal latency</p>
                 </div>
-                <div style="margin-bottom: 8px;">
-                    <p style="margin: 3px 0; font-weight: bold; font-size: 13px;">Gitofy — GitHub/GitLab Companion (Android) | Jan 2025 – Aug 2025</p>
-                    <p style="margin: 3px 0; font-size: 11px;">Java, Android, GitHub REST API</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Created a mobile app for on-the-go repository management, giving developers quick access to project insights.</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Implemented OAuth login + push notifications to keep users updated on tracked branches.</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Added contributor statistics and repo filtering, improving productivity for teams managing multiple projects.</p>
+                <div style="margin-bottom: 6px;">
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Groki — AI Voice-Controlled Inventory Manager | Jan 2025 – Aug 2025</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">React, Node.js, Gemini API, Supabase</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Built a voice-activated inventory system with wake-word detection for hands-free usage • Integrated Gemini AI to suggest recipes from pantry contents • Secured user authentication and storage with Supabase</p>
                 </div>
-                <div style="margin-bottom: 8px;">
-                    <p style="margin: 3px 0; font-weight: bold; font-size: 13px;">Compiler Development Project | Sept 2024 – Dec 2024</p>
-                    <p style="margin: 3px 0; font-size: 11px;">Python, Regular Expressions</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Designed and implemented a custom lexical analyzer and grammar-based parser in Python.</p>
-                    <p style="margin: 3px 0; font-size: 11px;">• Incorporated semantic checks to improve reliability, strengthening understanding of compiler design and language processing.</p>
+                <div style="margin-bottom: 6px;">
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Gitofy — GitHub/GitLab Companion (Android) | Jan 2025 – Aug 2025</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">Java, Android, GitHub REST API</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Created a mobile app for on-the-go repository management • Implemented OAuth login + push notifications • Added contributor statistics and repo filtering</p>
                 </div>
+            </section>
+            
+            <section style="margin-bottom: 12px;">
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 5px; font-weight: bold;">EXTRA CURRICULAR</h2>
+                <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">NASA Space Apps Challenge | Oct 2024 | Dalhousie University, Halifax, NS</p>
+                <p style="margin: 2px 0; font-size: 10px;">• Collaborated with a diverse team of 5 to propose innovative solutions for real-world challenges posed by NASA • Developed Python game prototype using Pygame under a 24-hour deadline</p>
+            </section>
+            
+            <section>
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 5px; font-weight: bold;">AWARDS & CERTIFICATIONS</h2>
+                <p style="margin: 2px 0; font-size: 10px;">• Dalhousie University Global Entrance Scholarship • Sexton Scholar • Machine Learning Specialization by Andrew Ng (Stanford University via Coursera)</p>
             </section>
         </div>
     `;
@@ -1142,33 +1170,37 @@ EDUCATION:
 
 TECHNICAL SKILLS:
 - Languages: HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js
-- Tools: Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor
-- Frameworks: Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS
+- Tools: Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel
+- Frameworks: Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask
+- Machine Learning: Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas
 
 AWARDS:
 - Dalhousie University Global Entrance Scholarship
 - Sexton Scholar
 
 FEATURED PROJECTS:
-1. Peer — Collaborative Coding & Communication Platform (Apr 2025 – Jul 2025)
-   - Built multi-user code sharing with integrated chat/video and role-based access
-   - Implemented live sync over WebSockets and designed a responsive UI for remote teamwork
+1. House Price Predictor — ML Web Application (Aug 2025 – Sept 2025)
+   - Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms)
+   - Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset
+   - Deployed full-stack web application with real-time predictions and interactive performance visualizations
+   - Technologies: Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript
+
+2. Peer — Collaborative Coding & Communication Platform (Apr 2025 – Jul 2025)
+   - Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly
+   - Optimized WebSocket sync to support 10+ concurrent users with minimal latency
    - Technologies: React, Node.js, WebRTC, WebSockets
 
-2. Groki — AI Voice-Controlled Inventory Manager (Jan 2025 – Aug 2025)
-   - Added wake-word activation and conversational assistance for hands-free item management
-   - Integrated Gemini AI for recipe guidance based on pantry contents; secured auth/data with Supabase
+3. Groki — AI Voice-Controlled Inventory Manager (Jan 2025 – Aug 2025)
+   - Built a voice-activated inventory system with wake-word detection for true hands-free usage
+   - Integrated Gemini AI to suggest recipes from pantry contents, improving meal planning efficiency
+   - Secured user authentication and storage with Supabase, ensuring reliability and data protection
    - Technologies: React, Node.js, Gemini API, Supabase
 
-3. Gitofy — GitHub/GitLab Companion (Android) (Jan 2025 – Aug 2025)
-   - Implemented OAuth login, push notifications for tracked branches, and activity analytics
-   - Improved on-the-go repo visibility with filtered browsing and contributor stats
+4. Gitofy — GitHub/GitLab Companion (Android) (Jan 2025 – Aug 2025)
+   - Created a mobile app for on-the-go repository management, giving developers quick access to project insights
+   - Implemented OAuth login + push notifications to keep users updated on tracked branches
+   - Added contributor statistics and repo filtering, improving productivity for teams managing multiple projects
    - Technologies: Java, Android, GitHub REST API
-
-4. Compiler Development Project (Sept 2024 – Dec 2024)
-   - Built a lexical analyzer with Python regex, a grammar-based parser, and semantic checks
-   - Strengthened understanding of compiler design and language processing
-   - Technologies: Python, Regular Expressions
 
 EXTRA CURRICULAR:
 NASA Space Apps Challenge (Oct 2024) - Dalhousie University, Halifax, NS
@@ -1553,6 +1585,12 @@ const projectPreviews = {
         title: "Gitofy - Mobile GitHub Client",
         description: "Experience seamless repository management with push notifications and analytics on mobile.",
         gifUrl: "assets/media/gitofy-demo.mov",
+        isVideo: true
+    },
+    houseprice: {
+        title: "House Price Predictor - ML Analysis",
+        description: "Watch machine learning algorithms analyze real estate data to predict accurate house prices with feature visualization.",
+        gifUrl: "assets/media/HousePricePrecitor_demo.mov",
         isVideo: true
     },
     compiler: {
