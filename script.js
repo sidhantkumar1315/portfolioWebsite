@@ -8,7 +8,7 @@ const appConfigs = {
             <div style="margin-top: 30px;">
                 <h3>Quick Overview:</h3>
                 <ul>
-                    <li><strong>Status:</strong> Currently seeking opportunities for Winter 2026</li>
+                    <li><strong>Status:</strong> Open to new opportunities (Summer/Fall 2026)</li>
                     <li><strong>Education:</strong> Computer Science at Dalhousie University</li>
                     <li><strong>CGPA:</strong> 4.11/4.3</li>
                     <li><strong>Location:</strong> Halifax, NS</li>
@@ -21,25 +21,30 @@ const appConfigs = {
         title: 'About - Sidhant Kumar',
         content: `
             <h2>About Me</h2>
-            <p>I'm a 3rd year Computer Science student at Dalhousie University who somehow maintains a 4.0+ GPA while 
-            building cool stuff on the side. When I'm not cramming for exams, I'm working on collaborative platforms, 
-            AI-powered applications, and mobile apps that solve real problems. I believe in learning by doing and 
-            turning ideas into working software. Currently seeking opportunities for Winter 2026.</p>
+            <p>I'm a Computer Science student at Dalhousie University maintaining a 4.0+ GPA while building real software
+            on the side. Most recently I did an IT internship at Sewa International in New Delhi. When I'm not studying,
+            I'm shipping VS Code extensions, AI-powered web apps, and full-stack platforms. I believe in learning by doing
+            and turning ideas into working software. Open to new opportunities for Summer/Fall 2026.</p>
             
             <h3>Professional Experience</h3>
+            <p><strong>Information Technology Intern (Hybrid)</strong> at Sewa International — New Delhi, India (Jan 2026 – Apr 2026)</p>
+            <ul>
+                <li>Triaged and resolved internal IT tickets in Zoho Desk — hardware, software, networking, and account-access issues for staff across the organization</li>
+                <li>Authored runbooks and technical documentation that standardized the IT team's ticket-resolution and onboarding workflows</li>
+                <li>Contributed to IT and CS projects through data management, software operations, and system update rollouts working directly with the IT Manager</li>
+            </ul>
             <p><strong>Software Developer – AI Trainer (Remote)</strong> at DataAnnotation (Nov 2024 – Mar 2025)</p>
             <ul>
-                <li>Reviewed AI-generated responses to ensure alignment with user request</li>
-                <li>Developed and tested code to enhance system functionality and user experience</li>
-                <li>Collaborated with cross-functional teams to improve AI performance and resolve issues</li>
-                <li>Maintained high standards for quality assurance in AI systems</li>
+                <li>Reviewed AI-generated code responses to user prompts in Python, JavaScript, and other languages, judging correctness and logic</li>
+                <li>Provided corrected code or rubric-based written feedback on flawed outputs to refine the model's future behavior</li>
             </ul>
-            
+
             <h3>Technical Skills</h3>
-            <p><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js</p>
-            <p><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel</p>
-            <p><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask</p>
-            <p><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas</p>
+            <p><strong>Languages:</strong> Python, Java, JavaScript, C, Node.js, HTML, CSS, SQL, PHP</p>
+            <p><strong>Frameworks & Libraries:</strong> React, Express.js, Flask, Tailwind CSS, Bootstrap, NumPy, Pandas, Plotly</p>
+            <p><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Oracle</p>
+            <p><strong>Tools & Platforms:</strong> Git, GitHub, VS Code, Cursor, IntelliJ, PyCharm, Android Studio, Jupyter, Postman, Vercel, Zoho Desk</p>
+            <p><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation</p>
             
             <h3>Certifications</h3>
             <ul>
@@ -94,6 +99,50 @@ const appConfigs = {
             <h2>Featured Projects</h2>
             <div class="projects-container">
                 <div class="project-grid">
+                    <div class="project-card" data-project="peersync">
+                        <div class="project-header">
+                            <h3>PeerSync — Real-Time Collaborative Coding VS Code Extension</h3>
+                            <div class="tech-badges">
+                                <span class="tech-badge typescript">TypeScript</span>
+                                <span class="tech-badge nodejs">Node.js</span>
+                                <span class="tech-badge yjs">Yjs CRDT</span>
+                                <span class="tech-badge socketio">Socket.io</span>
+                                <span class="tech-badge webrtc">WebRTC</span>
+                                <span class="tech-badge simplepeer">SimplePeer</span>
+                            </div>
+                        </div>
+                        <p>Built and shipped a full-stack VS Code extension to the Marketplace with real-time collaborative coding, live cursors, text chat, and P2P audio/video calling.</p>
+                        <p>Implemented conflict-free multi-user editing via Yjs CRDT broadcasting delta updates over Socket.io, plus WebRTC P2P audio/video with canvas-based Picture-in-Picture compositing.</p>
+                        <p>Designed a Node.js signaling server on Render handling room management, SDP/ICE relay, workspace snapshot sync, and multi-language code execution with live output streaming.</p>
+                        <div class="project-links">
+                            <a href="https://marketplace.visualstudio.com/items?itemName=peersync.peersync" target="_blank"><i class="fas fa-store"></i> Marketplace</a>
+                            <a href="https://github.com/DalCreators/peerFull" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        <p class="project-duration">Feb 2026 - May 2026</p>
+                    </div>
+
+                    <div class="project-card" data-project="voicetosql">
+                        <div class="project-header">
+                            <h3>VoiceToSQL — Natural Language & Voice Query AI Web App</h3>
+                            <div class="tech-badges">
+                                <span class="tech-badge react">React</span>
+                                <span class="tech-badge vite">Vite</span>
+                                <span class="tech-badge fastapi">FastAPI</span>
+                                <span class="tech-badge python">Python</span>
+                                <span class="tech-badge groq">Groq (Llama 3.3)</span>
+                                <span class="tech-badge sqlite">SQLite</span>
+                            </div>
+                        </div>
+                        <p>Built a full-stack AI web app that converts natural-language and voice queries into SQL using Groq's Llama 3.3 70B LLM, with safe SELECT-only execution against SQLite.</p>
+                        <p>Implemented browser voice input via the Web Speech API and auto-generated bar/line visualizations with Recharts based on data shape (time-series vs categorical).</p>
+                        <p>Supported custom .db/.sqlite/.csv uploads, 6-query conversation history for context-aware SQL, and AI-generated plain-English result summaries.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/sidhantkumar1315/VoicetoSQL" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://voiceto-sql.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Link</a>
+                        </div>
+                        <p class="project-duration">Oct 2025 - Present</p>
+                    </div>
+
                     <div class="project-card" data-project="houseprice">
                         <div class="project-header">
                             <h3>House Price Predictor — ML Web Application</h3>
@@ -273,7 +322,7 @@ const appConfigs = {
                     <div class="availability-info">
                         <h3>Quick Info</h3>
                         <p>📍 Halifax, Nova Scotia, Canada</p>
-                        <p>🚀 Seeking Winter 2026 internships</p>
+                        <p>🚀 Open to new opportunities (Summer/Fall 2026)</p>
                         <p>💼 Full-stack development, AI/ML, mobile apps</p>
                     </div>
                 </div>
@@ -368,13 +417,13 @@ const appConfigs = {
                             <div class="message-text">
                                 Hi! I'm here to help you learn about Sidhant Kumar. I can answer questions about his:
                                 <ul>
-                                    <li>📚 Education at Dalhousie University (4.0 GPA!)</li>
-                                    <li>💼 Work experience as an AI Trainer at DataAnnotation</li>
-                                    <li>🚀 Projects like House Price Predictor, Pokedex, Email System, and Compiler</li>
-                                    <li>⚡ Technical skills in Python, JavaScript, Java, Machine Learning and more</li>
+                                    <li>📚 Education at Dalhousie University (4.0+ GPA)</li>
+                                    <li>💼 IT Internship at Sewa International & AI Trainer role at DataAnnotation</li>
+                                    <li>🚀 Projects like PeerSync, VoiceToSQL, House Price Predictor, Groki, and more</li>
+                                    <li>⚡ Technical skills in Python, TypeScript, React, FastAPI, ML, and more</li>
                                     <li>🎯 Career goals and achievements</li>
                                 </ul>
-                                Perfect for learning about internship readiness and technical expertise!
+                                Ask me anything!
                             </div>
                         </div>
                     </div>
@@ -952,8 +1001,8 @@ function updatePlayerLabels() {
 function downloadResume(format) {
     if (format === 'pdf') {
         const link = document.createElement('a');
-        link.href = './assets/Winter2026_SidhantKumar_Resume.pdf';
-        link.download = 'Winter2026_SidhantKumar_Resume.pdf';
+        link.href = './assets/Sidhant_Kumar_Resume.pdf';
+        link.download = 'Sidhant_Kumar_Resume.pdf';
         link.click();
     } else if (format === 'txt') {
         downloadTextResume();
@@ -971,55 +1020,54 @@ Bachelor of Computer Science, CGPA – 4.11/4.3                          Halifax
 Co-op Work Term Availability: 4 months or 8 months
 
 TECHNICAL SKILLS
-Languages: HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js
-Tools: Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel
-Frameworks: Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask
-Machine Learning: Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas
+Languages: Python, Java, JavaScript, C, Node.js, HTML, CSS, SQL, PHP
+Frameworks & Libraries: React, Express.js, Flask, Tailwind CSS, Bootstrap, NumPy, Pandas, Plotly
+Databases: PostgreSQL, MySQL, MongoDB, Oracle
+Tools & Platforms: Git, GitHub, VS Code, Cursor, IntelliJ, PyCharm, Android Studio, Jupyter, Postman, Vercel, Zoho Desk
+Machine Learning: Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation
 
 EXPERIENCE
+Information Technology Intern (Hybrid)                                  Jan 2026 – Apr 2026
+Sewa International — New Delhi, India
+• Triaged and resolved internal IT tickets in Zoho Desk — hardware, software, networking, and account-access issues.
+• Authored runbooks and technical documentation that standardized IT ticket-resolution and onboarding workflows.
+• Contributed to IT and CS projects through data management, software operations, and system update rollouts.
+
 Software Developer – AI Trainer (Remote)                               Nov 2024 – Mar 2025
 DataAnnotation
-• Reviewed AI-generated responses to ensure alignment with user request.
-• Developed and tested code to enhance system functionality and user experience.
-• Collaborated with cross-functional teams to improve AI performance and resolve issues.
-• Maintained high standards for quality assurance in AI systems.
+• Reviewed AI-generated code responses to user prompts in Python, JavaScript, and other languages, judging correctness and logic.
+• Provided corrected code or rubric-based written feedback on flawed outputs to refine the model's future behavior.
 
 PROJECTS
+PeerSync — Real-Time Collaborative Coding VS Code Extension            Feb 2026 – May 2026
+TypeScript, Node.js, Yjs CRDT, Socket.io, WebRTC, SimplePeer, Render
+• Built and shipped a full-stack VS Code extension to the Marketplace with real-time collaborative coding, live cursors, text chat, and P2P audio/video calling.
+• Implemented conflict-free multi-user editing via Yjs CRDT broadcasting delta updates over Socket.io, plus WebRTC P2P audio/video using SimplePeer with canvas-based Picture-in-Picture compositing.
+• Designed a Node.js signaling server on Render handling room management, SDP/ICE relay, workspace snapshot sync, and multi-language code execution with live output streaming.
+
+VoiceToSQL — Natural Language & Voice Query AI Web App                 Oct 2025 – Present
+React, Vite, FastAPI, Python, Groq API (Llama 3.3 70B), SQLite, Recharts
+• Built a full-stack AI web app that converts natural-language and voice queries into SQL using Groq's Llama 3.3 70B LLM, with safe SELECT-only execution against SQLite.
+• Implemented browser voice input via the Web Speech API and auto-generated bar/line visualizations with Recharts.
+• Supported custom .db/.sqlite/.csv uploads, 6-query conversation history for context-aware SQL, and AI-generated plain-English result summaries.
+
 House Price Predictor — ML Web Application | GitHub | Live             Aug 2025 – Sept 2025
 Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript
-• Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms).
-• Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset.
-• Engineered 16 features through data preprocessing, categorical encoding, and Z-score normalization.
-• Deployed full-stack web application with real-time predictions and interactive performance visualizations.
-
-Peer — Collaborative Coding & Communication Platform | GitHub | Live    Apr 2025 – Jul 2025
-React, Node.js, WebRTC, WebSockets
-• Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly.
-• Optimized WebSocket sync to support 10+ concurrent users with minimal latency, ensuring a smooth remote teamwork experience.
+• Built linear regression model from scratch using gradient descent optimization.
+• Achieved 72.8% R² accuracy predicting house prices on the Ames Housing dataset.
+• Engineered 16+ features through preprocessing, encoding, and normalization.
+• Deployed web app with real-time predictions and interactive dashboards.
 
 Groki — AI Voice-Controlled Inventory Manager | GitHub | Live           Jan 2025 – Aug 2025
 React, Node.js, Gemini API, Supabase
-• Built a voice-activated inventory system with wake-word detection for true hands-free usage.
-• Integrated Gemini AI to suggest recipes from pantry contents, improving meal planning efficiency for end-users.
-• Secured user authentication and storage with Supabase, ensuring reliability and data protection.
+• Built a wake-word-activated inventory system enabling fully hands-free pantry management on the web.
+• Integrated Google's Gemini API to recommend recipes from real-time pantry contents.
+• Implemented secure authentication and PostgreSQL storage via Supabase; deployed on Vercel.
 
-Gitofy — GitHub/GitLab Companion (Android) | GitHub | APK              Jan 2025 – Aug 2025
-Java, Android, GitHub REST API
-• Created a mobile app for on-the-go repository management, giving developers quick access to project insights.
-• Implemented OAuth login + push notifications to keep users updated on tracked branches.
-• Added contributor statistics and repo filtering, improving productivity for teams managing multiple projects.
-
-EXTRA CURRICULAR
-NASA Space Apps Challenge                                               Oct 2024
-Dalhousie University, Halifax, NS
-• Collaborated with a diverse team of 5 to propose innovative solutions for real-world challenges posed by NASA.
-• Participated in brainstorming sessions to align technical ideas with project goals.
-• Developed Python game prototype using Pygame under a 24-hour deadline.
-
-AWARDS & CERTIFICATIONS
+HONORS & ACTIVITIES
 • Dalhousie University Global Entrance Scholarship.
 • Sexton Scholar.
-• Machine Learning Specialization by Andrew Ng (Stanford University via Coursera) [Certificate]
+• Coursera ML Specialization Certificate (Stanford/Andrew Ng).
     `.trim();
     
     const blob = new Blob([resumeText], { type: 'text/plain' });
@@ -1046,51 +1094,48 @@ function printResume() {
             
             <section style="margin-bottom: 14px;">
                 <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">TECHNICAL SKILLS</h2>
-                <p style="margin: 2px 0; font-size: 10px;"><strong>Languages:</strong> HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js</p>
-                <p style="margin: 2px 0; font-size: 10px;"><strong>Tools:</strong> Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel</p>
-                <p style="margin: 2px 0; font-size: 10px;"><strong>Frameworks:</strong> Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask</p>
-                <p style="margin: 2px 0; font-size: 10px;"><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Languages:</strong> Python, Java, JavaScript, C, Node.js, HTML, CSS, SQL, PHP</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Frameworks & Libraries:</strong> React, Express.js, Flask, Tailwind CSS, Bootstrap, NumPy, Pandas, Plotly</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Oracle</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Tools & Platforms:</strong> Git, GitHub, VS Code, Cursor, IntelliJ, PyCharm, Android Studio, Jupyter, Postman, Vercel, Zoho Desk</p>
+                <p style="margin: 2px 0; font-size: 10px;"><strong>Machine Learning:</strong> Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation</p>
             </section>
-            
+
             <section style="margin-bottom: 14px;">
                 <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">EXPERIENCE</h2>
-                <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Software Developer – AI Trainer (Remote) | DataAnnotation | Nov 2024 – Mar 2025</p>
-                <p style="margin: 2px 0; font-size: 10px;">• Reviewed AI-generated responses to ensure alignment with user requests • Developed and tested code to enhance system functionality • Collaborated with cross-functional teams to improve AI performance • Maintained high standards for quality assurance in AI systems</p>
+                <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Information Technology Intern (Hybrid) | Sewa International — New Delhi, India | Jan 2026 – Apr 2026</p>
+                <p style="margin: 2px 0; font-size: 10px;">• Triaged and resolved internal IT tickets in Zoho Desk — hardware, software, networking, and account-access issues • Authored runbooks and technical documentation standardizing IT ticket-resolution and onboarding workflows • Contributed to IT and CS projects through data management, software operations, and system update rollouts</p>
+                <p style="margin: 6px 0 2px 0; font-weight: bold; font-size: 11px;">Software Developer – AI Trainer (Remote) | DataAnnotation | Nov 2024 – Mar 2025</p>
+                <p style="margin: 2px 0; font-size: 10px;">• Reviewed AI-generated code responses in Python, JavaScript, and other languages, judging correctness and logic • Provided corrected code or rubric-based written feedback on flawed outputs to refine the model's future behavior</p>
             </section>
-            
+
             <section style="margin-bottom: 12px;">
                 <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 7px; font-weight: bold;">PROJECTS</h2>
                 <div style="margin-bottom: 6px;">
-                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">House Price Predictor — ML Web Application | Aug 2025 – Sept 2025</p>
-                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript</p>
-                    <p style="margin: 2px 0; font-size: 10px;">• Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms) • Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset • Deployed full-stack web application with real-time predictions and interactive performance visualizations</p>
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">PeerSync — Real-Time Collaborative Coding VS Code Extension | Feb 2026 – May 2026</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">TypeScript, Node.js, Yjs CRDT, Socket.io, WebRTC, SimplePeer, Render</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Built and shipped a full-stack VS Code extension to the Marketplace with real-time collaborative coding, live cursors, text chat, and P2P audio/video calling • Implemented conflict-free multi-user editing via Yjs CRDT and WebRTC P2P audio/video with Picture-in-Picture compositing • Node.js signaling server handling room management, SDP/ICE relay, and multi-language code execution</p>
                 </div>
                 <div style="margin-bottom: 6px;">
-                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Peer — Collaborative Coding & Communication Platform | Apr 2025 – Jul 2025</p>
-                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">React, Node.js, WebRTC, WebSockets</p>
-                    <p style="margin: 2px 0; font-size: 10px;">• Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly • Optimized WebSocket sync to support 10+ concurrent users with minimal latency</p>
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">VoiceToSQL — Natural Language & Voice Query AI Web App | Oct 2025 – Present</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">React, Vite, FastAPI, Python, Groq API (Llama 3.3 70B), SQLite, Recharts</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Built a full-stack AI web app converting natural-language and voice queries into SQL using Groq's Llama 3.3 70B LLM • Voice input via Web Speech API with auto-generated Recharts visualizations based on data shape • Custom .db/.sqlite/.csv uploads, 6-query conversation history, and AI-generated plain-English result summaries</p>
+                </div>
+                <div style="margin-bottom: 6px;">
+                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">House Price Predictor — ML Web Application | Aug 2025 – Sept 2025</p>
+                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Built linear regression model from scratch using gradient descent optimization • Achieved 72.8% R² accuracy predicting house prices on the Ames Housing dataset • Deployed web app with real-time predictions and interactive dashboards</p>
                 </div>
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Groki — AI Voice-Controlled Inventory Manager | Jan 2025 – Aug 2025</p>
                     <p style="margin: 1px 0; font-size: 10px; font-style: italic;">React, Node.js, Gemini API, Supabase</p>
-                    <p style="margin: 2px 0; font-size: 10px;">• Built a voice-activated inventory system with wake-word detection for hands-free usage • Integrated Gemini AI to suggest recipes from pantry contents • Secured user authentication and storage with Supabase</p>
-                </div>
-                <div style="margin-bottom: 6px;">
-                    <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">Gitofy — GitHub/GitLab Companion (Android) | Jan 2025 – Aug 2025</p>
-                    <p style="margin: 1px 0; font-size: 10px; font-style: italic;">Java, Android, GitHub REST API</p>
-                    <p style="margin: 2px 0; font-size: 10px;">• Created a mobile app for on-the-go repository management • Implemented OAuth login + push notifications • Added contributor statistics and repo filtering</p>
+                    <p style="margin: 2px 0; font-size: 10px;">• Built a wake-word-activated inventory system for hands-free pantry management • Integrated Gemini AI to recommend recipes from real-time pantry contents • Secure authentication and PostgreSQL storage via Supabase; deployed on Vercel</p>
                 </div>
             </section>
-            
-            <section style="margin-bottom: 12px;">
-                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 5px; font-weight: bold;">EXTRA CURRICULAR</h2>
-                <p style="margin: 2px 0; font-weight: bold; font-size: 11px;">NASA Space Apps Challenge | Oct 2024 | Dalhousie University, Halifax, NS</p>
-                <p style="margin: 2px 0; font-size: 10px;">• Collaborated with a diverse team of 5 to propose innovative solutions for real-world challenges posed by NASA • Developed Python game prototype using Pygame under a 24-hour deadline</p>
-            </section>
-            
+
             <section>
-                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 5px; font-weight: bold;">AWARDS & CERTIFICATIONS</h2>
-                <p style="margin: 2px 0; font-size: 10px;">• Dalhousie University Global Entrance Scholarship • Sexton Scholar • Machine Learning Specialization by Andrew Ng (Stanford University via Coursera)</p>
+                <h2 style="font-size: 14px; border-bottom: 1px solid #666; padding-bottom: 3px; margin-bottom: 5px; font-weight: bold;">HONORS & ACTIVITIES</h2>
+                <p style="margin: 2px 0; font-size: 10px;">• Dalhousie University Global Entrance Scholarship • Sexton Scholar • Coursera ML Specialization Certificate (Stanford/Andrew Ng)</p>
             </section>
         </div>
     `;
@@ -1156,12 +1201,15 @@ PERSONAL INFO:
 - LinkedIn: LinkedIn profile available
 - GitHub: GitHub profile available
 
-CURRENT ROLE:
-Software Developer – AI Trainer (Remote) at DataAnnotation (Nov 2024 – Mar 2025)
-- Reviewed AI-generated responses to ensure alignment with user request
-- Developed and tested code to enhance system functionality and user experience
-- Collaborated with cross-functional teams to improve AI performance and resolve issues
-- Maintained high standards for quality assurance in AI systems
+EXPERIENCE:
+1. Information Technology Intern (Hybrid) at Sewa International — New Delhi, India (Jan 2026 – Apr 2026)
+   - Triaged and resolved internal IT tickets in Zoho Desk — hardware, software, networking, and account-access issues
+   - Authored runbooks and technical documentation that standardized IT ticket-resolution and onboarding workflows
+   - Contributed to IT and CS projects through data management, software operations, and system update rollouts
+
+2. Software Developer – AI Trainer (Remote) at DataAnnotation (Nov 2024 – Mar 2025)
+   - Reviewed AI-generated code responses in Python, JavaScript, and other languages, judging correctness and logic
+   - Provided corrected code or rubric-based written feedback on flawed outputs to refine the model's future behavior
 
 EDUCATION:
 - Bachelor of Computer Science at Dalhousie University (Sept 2023 - Present)
@@ -1169,60 +1217,58 @@ EDUCATION:
 - Halifax, NS
 
 TECHNICAL SKILLS:
-- Languages: HTML, CSS, JavaScript, Java, Python, MySQL, PHP, Aseba, C, Node.js
-- Tools: Processing, Android Studio, IntelliJ, PyCharm, Eclipse, Jupyter Notebooks, Git, VS Code, Cursor, Vercel
-- Frameworks: Bootstrap, JavaSwing, Pygame, Express.js, TailwindCSS, Flask
-- Machine Learning: Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation, NumPy, Pandas
+- Languages: Python, Java, JavaScript, C, Node.js, HTML, CSS, SQL, PHP
+- Frameworks & Libraries: React, Express.js, Flask, Tailwind CSS, Bootstrap, NumPy, Pandas, Plotly
+- Databases: PostgreSQL, MySQL, MongoDB, Oracle
+- Tools & Platforms: Git, GitHub, VS Code, Cursor, IntelliJ, PyCharm, Android Studio, Jupyter, Postman, Vercel, Zoho Desk
+- Machine Learning: Linear Regression, Gradient Descent, Feature Engineering, Data Preprocessing, Model Evaluation
 
-AWARDS:
+HONORS:
 - Dalhousie University Global Entrance Scholarship
 - Sexton Scholar
+- Coursera ML Specialization Certificate (Stanford/Andrew Ng)
 
 FEATURED PROJECTS:
-1. House Price Predictor — ML Web Application (Aug 2025 – Sept 2025)
-   - Built linear regression model from scratch using gradient descent optimization (Andrew Ng's algorithms)
-   - Model achieved 72.8% R² accuracy predicting house prices on 1,460-sample Ames Housing dataset
-   - Deployed full-stack web application with real-time predictions and interactive performance visualizations
+1. PeerSync — Real-Time Collaborative Coding VS Code Extension (Feb 2026 – May 2026)
+   - Built and shipped a full-stack VS Code extension to the Marketplace with real-time collaborative coding, live cursors, text chat, and P2P audio/video calling
+   - Implemented conflict-free multi-user editing via Yjs CRDT broadcasting delta updates over Socket.io, plus WebRTC P2P audio/video using SimplePeer with canvas-based Picture-in-Picture compositing
+   - Designed a Node.js signaling server on Render handling room management, SDP/ICE relay, workspace snapshot sync, and multi-language code execution with live output streaming
+   - Technologies: TypeScript, Node.js, Yjs CRDT, Socket.io, WebRTC, SimplePeer, Render
+
+2. VoiceToSQL — Natural Language & Voice Query AI Web App (Oct 2025 – Present)
+   - Built a full-stack AI web app that converts natural-language and voice queries into SQL using Groq's Llama 3.3 70B LLM, with safe SELECT-only execution against SQLite
+   - Implemented browser voice input via the Web Speech API and auto-generated bar/line visualizations with Recharts based on data shape
+   - Supported custom .db/.sqlite/.csv uploads, 6-query conversation history for context-aware SQL, and AI-generated plain-English result summaries
+   - Technologies: React, Vite, FastAPI, Python, Groq API (Llama 3.3 70B), SQLite, Recharts
+
+3. House Price Predictor — ML Web Application (Aug 2025 – Sept 2025)
+   - Built linear regression model from scratch using gradient descent optimization
+   - Achieved 72.8% R² accuracy predicting house prices on the Ames Housing dataset
+   - Engineered 16+ features through preprocessing, encoding, and normalization
    - Technologies: Python, Flask, NumPy, Pandas, Plotly, HTML/CSS, JavaScript
 
-2. Peer — Collaborative Coding & Communication Platform (Apr 2025 – Jul 2025)
+4. Peer — Collaborative Coding & Communication Platform (Apr 2025 – Jul 2025)
    - Developed a real-time collaborative IDE with integrated chat/video, enabling teams to code together seamlessly
    - Optimized WebSocket sync to support 10+ concurrent users with minimal latency
    - Technologies: React, Node.js, WebRTC, WebSockets
 
-3. Groki — AI Voice-Controlled Inventory Manager (Jan 2025 – Aug 2025)
-   - Built a voice-activated inventory system with wake-word detection for true hands-free usage
-   - Integrated Gemini AI to suggest recipes from pantry contents, improving meal planning efficiency
-   - Secured user authentication and storage with Supabase, ensuring reliability and data protection
+5. Groki — AI Voice-Controlled Inventory Manager (Jan 2025 – Aug 2025)
+   - Built a wake-word-activated inventory system enabling fully hands-free pantry management on the web
+   - Integrated Google's Gemini API to recommend recipes from real-time pantry contents
+   - Implemented secure authentication and PostgreSQL storage via Supabase; deployed on Vercel
    - Technologies: React, Node.js, Gemini API, Supabase
 
-4. Gitofy — GitHub/GitLab Companion (Android) (Jan 2025 – Aug 2025)
-   - Created a mobile app for on-the-go repository management, giving developers quick access to project insights
+6. Gitofy — GitHub/GitLab Companion (Android) (Jan 2025 – Aug 2025)
+   - Created a mobile app for on-the-go repository management
    - Implemented OAuth login + push notifications to keep users updated on tracked branches
-   - Added contributor statistics and repo filtering, improving productivity for teams managing multiple projects
    - Technologies: Java, Android, GitHub REST API
 
-EXTRA CURRICULAR:
-NASA Space Apps Challenge (Oct 2024) - Dalhousie University, Halifax, NS
-- Collaborated with a diverse team of 5 to propose innovative solutions for real-world challenges posed by NASA
-- Participated in brainstorming sessions to align technical ideas with project goals
-- Developed Python game prototype using Pygame under a 24-hour deadline
-
-CAREER HIGHLIGHTS:
-- Excellent 4.11/4.3 GPA throughout university
-- Scholarship recipient
-- Experienced in AI training and quality assurance
-- Strong background in full-stack development
-- Active in hackathons and coding challenges
-
 EXAMPLE RESPONSES (Notice the natural, factual tone):
-- "What's 2+2?" → "That's 4! Speaking of math, Sidhant maintains a 4.0 GPA in Computer Science and has worked on projects like compiler development that involve mathematical concepts. Would you like to know more about his technical projects?"
+- "What's 2+2?" → "That's 4! Speaking of math, Sidhant maintains a 4.0+ GPA in Computer Science and has built projects involving machine learning and compiler design. Would you like to know more about his technical projects?"
 
-- "How's the weather?" → "I don't have current weather data, but Sidhant is based in Halifax, Nova Scotia where he's studying at Dalhousie University. Are you interested in learning about his educational background or projects?"
+- "What programming languages do you know?" → "I'm an AI assistant, but I can tell you about Sidhant's skills! He works with Python, Java, JavaScript, C, Node.js, HTML, CSS, SQL, and PHP. He's built everything from VS Code extensions to AI-powered web apps. Would you like to hear more about any of these?"
 
-- "What programming languages do you know?" → "I'm an AI assistant, but I can tell you about Sidhant's programming experience! He works with HTML, CSS, JavaScript, Java, Python, MySQL, PHP, C, and Node.js. He's built projects like a collaborative coding platform and AI voice-controlled inventory manager. Would you like to hear more about any of these?"
-
-- "Tell me a joke" → "Here's one: Why do programmers prefer dark mode? Because light attracts bugs! 😄 Speaking of programming, Sidhant works as an AI Trainer at DataAnnotation and has experience in web development. Want to know more about his technical background?"
+- "Tell me a joke" → "Here's one: Why do programmers prefer dark mode? Because light attracts bugs! 😄 Speaking of programming, Sidhant has shipped projects like PeerSync (a VS Code extension) and VoiceToSQL (an AI web app). Want to know more?"
 
 Focus on being helpful and presenting Sidhant's background factually without over-promotion.
 `;
@@ -1569,6 +1615,18 @@ function fixPokedexLayout() {
 
 // Project Preview System
 const projectPreviews = {
+    peersync: {
+        title: "PeerSync - Real-Time Collaborative VS Code Extension",
+        description: "Watch real-time collaborative coding with live cursors, text chat, and P2P audio/video calling inside VS Code.",
+        gifUrl: "assets/media/peerSync-demo.mov",
+        isVideo: true
+    },
+    voicetosql: {
+        title: "VoiceToSQL - Natural Language & Voice SQL Queries",
+        description: "See natural language and voice queries converted into SQL with auto-generated data visualizations.",
+        gifUrl: "assets/media/voicetosql-demo.mov",
+        isVideo: true
+    },
     peer: {
         title: "Peer - Real-time Collaboration",
         description: "Watch developers collaborate in real-time with integrated video chat and live code synchronization.",

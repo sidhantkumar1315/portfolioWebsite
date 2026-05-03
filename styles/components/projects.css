@@ -141,6 +141,19 @@
 .tech-badge.html { background: linear-gradient(135deg, #E34F26, #F06529); }
 .tech-badge.css { background: linear-gradient(135deg, #1572B6, #33A9DC); }
 .tech-badge.mysql { background: linear-gradient(135deg, #00758F, #F29111); }
+.tech-badge.typescript { background: linear-gradient(135deg, #3178C6, #235A97); }
+.tech-badge.socketio { background: linear-gradient(135deg, #010101, #4A4A4A); }
+.tech-badge.yjs { background: linear-gradient(135deg, #00B4D8, #0077B6); }
+.tech-badge.simplepeer { background: linear-gradient(135deg, #F472B6, #DB2777); }
+.tech-badge.vite { background: linear-gradient(135deg, #646CFF, #BD34FE); }
+.tech-badge.fastapi { background: linear-gradient(135deg, #009688, #00796B); }
+.tech-badge.groq { background: linear-gradient(135deg, #F97316, #EA580C); }
+.tech-badge.sqlite { background: linear-gradient(135deg, #003B57, #0E6DB0); }
+.tech-badge.recharts { background: linear-gradient(135deg, #22C55E, #16A34A); }
+.tech-badge.flask { background: linear-gradient(135deg, #000000, #555555); }
+.tech-badge.numpy { background: linear-gradient(135deg, #4DABCF, #013243); }
+.tech-badge.pandas { background: linear-gradient(135deg, #150458, #E70488); }
+.tech-badge.plotly { background: linear-gradient(135deg, #3F4F75, #80CFBE); }
 
 .project-card p {
     color: #555;
