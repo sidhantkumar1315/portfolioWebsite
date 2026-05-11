@@ -11,7 +11,7 @@ A macOS-inspired interactive portfolio built with vanilla HTML, CSS, and JavaScr
 - **Mac desktop UI** — menu bar with live clock, dock with hover magnification, traffic light window controls
 - **Dark mode** — toggleable with animated star field on the desktop background
 - **Project previews** — hover any project card to see a live demo video popup
-- **AI chat** — ask an AI assistant (powered by Google Gemini) anything about Sidhant
+- **AI chat** — ask an AI assistant (powered by Groq) anything about Sidhant
 - **Built-in Pokedex** — live iframe embed of the Pokedex project
 - **Tic Tac Toe** — playable game with Easy/Hard AI (Minimax + alpha-beta pruning)
 - **Contact form** — sends real emails via EmailJS
@@ -26,7 +26,7 @@ A macOS-inspired interactive portfolio built with vanilla HTML, CSS, and JavaScr
 | UI | Vanilla HTML5, CSS3 (custom properties, grid, flexbox) |
 | Logic | Vanilla JavaScript (ES6+) |
 | Email | EmailJS |
-| AI Chat | Google Gemini API (gemini-1.5-flash) |
+| AI Chat | Groq API (llama-3.1-8b-instant) |
 | Icons | Font Awesome 6 |
 | Deployment | GitHub Pages |
 
@@ -79,7 +79,7 @@ npx serve .
 python3 -m http.server 8080
 ```
 
-> The AI chat requires a free [Google Gemini API key](https://aistudio.google.com/app/apikey). You'll be prompted to enter one on first use.
+> The AI chat is powered by Groq and works out of the box for all visitors — no setup required.
 
 ---
 

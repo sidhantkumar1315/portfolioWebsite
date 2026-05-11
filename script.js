@@ -402,7 +402,7 @@ const appConfigs = {
                     <div class="ai-avatar">🤖</div>
                     <div class="chat-info">
                         <h3>AI Assistant</h3>
-                        <p class="chat-subtitle">Ask me anything about Sidhant Kumar's background, skills, and projects!</p>
+                        <p class="chat-subtitle">Powered by Groq — ask me anything about Sidhant's background, skills, and projects!</p>
                     </div>
                     <div class="api-status" id="api-status">
                         <span class="status-indicator online" id="status-indicator">●</span>
@@ -1135,9 +1135,8 @@ function printResume() {
 
 
 // AI Chat Functionality
-const GEMINI_API_KEY = 'AIzaSyA1yiGmrOgznZrm5skzzM1vcSzD8b2BQmU';
-let geminiApiKey = GEMINI_API_KEY;
-let isApiKeyValid = true;
+
+const GROQ_API_KEY = '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';
 
 const SIDHANT_CONTEXT = `
 You are a friendly and helpful AI assistant on Sidhant Kumar's portfolio website. You have two main roles:
@@ -1295,34 +1294,27 @@ async function sendMessage() {
     const loadingMessage = addMessage('AI', '', true);
     
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`, {
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${GROQ_API_KEY}`
             },
             body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: SIDHANT_CONTEXT + "\n\nUser question: " + message + "\n\nPlease provide a helpful response about Sidhant Kumar based on the context provided above. Keep your response professional and informative."
-                    }]
-                }],
-                generationConfig: {
-                    temperature: 0.7,
-                    maxOutputTokens: 500,
-                }
+                model: 'llama-3.1-8b-instant',
+                messages: [{ role: 'user', content: SIDHANT_CONTEXT + "\n\nUser question: " + message + "\n\nPlease provide a helpful response about Sidhant Kumar based on the context provided above. Keep your response professional and informative." }],
+                max_tokens: 500,
+                temperature: 0.7
             })
         });
-        
+
         const data = await response.json();
-        
-        if (response.ok && data.candidates && data.candidates[0]) {
-            const aiResponse = data.candidates[0].content.parts[0].text;
-            
-            // Remove loading message and add actual response
+
+        if (response.ok && data.choices && data.choices[0]) {
+            const aiResponse = data.choices[0].message.content;
             loadingMessage.remove();
             addMessage('AI', aiResponse);
         } else {
-            console.error('API Error:', data);
             throw new Error(data.error?.message || 'Failed to get response');
         }
     } catch (error) {
