@@ -405,8 +405,8 @@ const appConfigs = {
                         <p class="chat-subtitle">Ask me anything about Sidhant Kumar's background, skills, and projects!</p>
                     </div>
                     <div class="api-status" id="api-status">
-                        <span class="status-indicator offline" id="status-indicator">●</span>
-                        <span class="status-text">Setup Required</span>
+                        <span class="status-indicator online" id="status-indicator">●</span>
+                        <span class="status-text">Connected</span>
                     </div>
                 </div>
                 
@@ -438,43 +438,6 @@ const appConfigs = {
                         <button id="send-button" class="send-button">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
-                    </div>
-                    <div class="api-setup-notice" id="api-setup-notice" style="display: none;">
-                        <div class="setup-content">
-                            <i class="fa-solid fa-exclamation-triangle"></i>
-                            <span>To use the AI chat, please add your free Google Gemini API key.</span>
-                            <button class="setup-button" onclick="showApiSetup()">Setup API</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="api-setup-modal" id="api-setup-modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Setup Free AI Chat</h3>
-                            <button class="close-modal" onclick="hideApiSetup()">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="setup-steps">
-                                <h4>Get your free Google Gemini API key:</h4>
-                                <ol>
-                                    <li>Visit <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
-                                    <li>Sign in with your Google account</li>
-                                    <li>Click "Create API Key" and copy it</li>
-                                    <li>Paste it below (stored locally in your browser)</li>
-                                </ol>
-                            </div>
-                            <div class="api-input-group">
-                                <label for="gemini-api-key">Gemini API Key:</label>
-                                <input type="password" id="gemini-api-key" class="api-input" placeholder="Enter your API key here" value="">
-                                <button class="save-api-key" onclick="saveApiKey()">Save & Test</button>
-                                <button class="test-demo-key" onclick="useDemoKey()" style="margin-top: 8px; background: #28a745;">Use Demo Key (for testing)</button>
-                            </div>
-                            <div class="privacy-note">
-                                <i class="fa-solid fa-shield-alt"></i>
-                                <small>Your API key is stored locally in your browser only. It's never sent to any server except Google's official API.</small>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1172,8 +1135,9 @@ function printResume() {
 
 
 // AI Chat Functionality
-let geminiApiKey = localStorage.getItem('gemini-api-key');
-let isApiKeyValid = false;
+const GEMINI_API_KEY = 'AIzaSyA1yiGmrOgznZrm5skzzM1vcSzD8b2BQmU';
+let geminiApiKey = GEMINI_API_KEY;
+let isApiKeyValid = true;
 
 const SIDHANT_CONTEXT = `
 You are a friendly and helpful AI assistant on Sidhant Kumar's portfolio website. You have two main roles:
@@ -1273,85 +1237,9 @@ EXAMPLE RESPONSES (Notice the natural, factual tone):
 Focus on being helpful and presenting Sidhant's background factually without over-promotion.
 `;
 
-function showApiSetup() {
-    document.getElementById('api-setup-modal').classList.add('active');
-}
-
-function hideApiSetup() {
-    document.getElementById('api-setup-modal').classList.remove('active');
-}
-
-function useDemoKey() {
-    const apiKeyInput = document.getElementById('gemini-api-key');
-    apiKeyInput.value = 'AIzaSyAL0kRV4zgBcmDQr9k7EYI2gYKBCK4hQgM';
-    saveApiKey();
-}
-
-async function saveApiKey() {
-    const apiKeyInput = document.getElementById('gemini-api-key');
-    const apiKey = apiKeyInput.value.trim();
-    
-    if (!apiKey) {
-        alert('Please enter a valid API key.');
-        return;
-    }
-    
-    // Test the API key
-    try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: 'Hello, this is a test message. Please respond with "API test successful".'
-                    }]
-                }]
-            })
-        });
-        
-        const result = await response.json();
-        
-        if (response.ok && result.candidates) {
-            localStorage.setItem('gemini-api-key', apiKey);
-            geminiApiKey = apiKey;
-            isApiKeyValid = true;
-            updateApiStatus(true);
-            enableChat();
-            hideApiSetup();
-            addMessage('AI', 'Great! The API connection is working. I\'m ready to answer questions about Sidhant Kumar!');
-        } else {
-            console.error('API Error:', result);
-            throw new Error(result.error?.message || 'Invalid API key');
-        }
-    } catch (error) {
-        alert('Invalid API key or network error. Please check your key and try again.\n\nError: ' + error.message);
-        console.error('API key test failed:', error);
-    }
-}
-
-function updateApiStatus(isOnline) {
-    const statusIndicator = document.getElementById('status-indicator');
-    const statusText = document.querySelector('.status-text');
-    const apiSetupNotice = document.getElementById('api-setup-notice');
-    
-    if (isOnline) {
-        statusIndicator.className = 'status-indicator online';
-        statusText.textContent = 'Connected';
-        apiSetupNotice.style.display = 'none';
-    } else {
-        statusIndicator.className = 'status-indicator offline';
-        statusText.textContent = 'Setup Required';
-        apiSetupNotice.style.display = 'block';
-    }
-}
-
 function enableChat() {
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
-    
     if (chatInput && sendButton) {
         chatInput.disabled = false;
         sendButton.disabled = false;
@@ -1397,7 +1285,7 @@ async function sendMessage() {
     const chatInput = document.getElementById('chat-input');
     const message = chatInput.value.trim();
     
-    if (!message || !isApiKeyValid) return;
+    if (!message) return;
     
     // Add user message
     addMessage('User', message);
@@ -1439,92 +1327,23 @@ async function sendMessage() {
         }
     } catch (error) {
         loadingMessage.remove();
-        addMessage('AI', 'Sorry, I encountered an error. Please try again or check your API key.\n\nError: ' + error.message);
+        addMessage('AI', 'Sorry, something went wrong. Please try again in a moment.');
         console.error('Chat error:', error);
     }
 }
 
-async function testExistingApiKey() {
-    if (!geminiApiKey) return false;
-    
-    try {
-        console.log('Testing API key on:', window.location.hostname);
-        console.log('Protocol:', window.location.protocol);
-        
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: 'Hello, this is a test message.'
-                    }]
-                }]
-            })
-        });
-        
-        console.log('Response status:', response.status);
-        console.log('Response headers:', [...response.headers.entries()]);
-        
-        const result = await response.json();
-        console.log('API Response:', result);
-        
-        if (response.ok && result.candidates) {
-            isApiKeyValid = true;
-            updateApiStatus(true);
-            enableChat();
-            return true;
-        } else {
-            console.error('API Error:', result);
-            // Don't remove key on GitHub Pages, might be temporary issue
-            if (window.location.hostname !== 'sidhantkumar1315.github.io') {
-                localStorage.removeItem('gemini-api-key');
-                geminiApiKey = null;
-            }
-            updateApiStatus(false);
-            return false;
-        }
-    } catch (error) {
-        console.error('API key test failed:', error);
-        console.error('Error details:', {
-            name: error.name,
-            message: error.message,
-            stack: error.stack
-        });
-        
-        // Don't remove key on GitHub Pages, might be temporary issue
-        if (window.location.hostname !== 'sidhantkumar1315.github.io') {
-            localStorage.removeItem('gemini-api-key');
-            geminiApiKey = null;
-        }
-        updateApiStatus(false);
-        return false;
-    }
-}
-
 function initializeAIChat() {
+    enableChat();
+
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
-    
-    // Auto-setup with demo key if no key exists
-    if (!geminiApiKey) {
-        geminiApiKey = 'AIzaSyAL0kRV4zgBcmDQr9k7EYI2gYKBCK4hQgM';
-        localStorage.setItem('gemini-api-key', geminiApiKey);
-    }
-    
-    // Test the API key
-    testExistingApiKey();
-    
+
     if (chatInput) {
         chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !chatInput.disabled) {
-                sendMessage();
-            }
+            if (e.key === 'Enter') sendMessage();
         });
     }
-    
+
     if (sendButton) {
         sendButton.addEventListener('click', sendMessage);
     }
