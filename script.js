@@ -1136,7 +1136,7 @@ function printResume() {
 
 // AI Chat Functionality
 
-const GROQ_API_KEY = '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';
+const CHAT_PROXY_URL = 'https://nameless-frog-4cd7.ksidhant193.workers.dev';
 
 const SIDHANT_CONTEXT = `
 You are a friendly and helpful AI assistant on Sidhant Kumar's portfolio website. You have two main roles:
@@ -1294,11 +1294,10 @@ async function sendMessage() {
     const loadingMessage = addMessage('AI', '', true);
     
     try {
-        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        const response = await fetch(CHAT_PROXY_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${GROQ_API_KEY}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 model: 'llama-3.1-8b-instant',
