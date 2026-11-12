@@ -1269,9 +1269,11 @@ function addMessage(sender, text, isLoading = false) {
         messageDiv.innerHTML = `
             <div class="message-avatar">${sender === 'AI' ? '🤖' : '👤'}</div>
             <div class="message-content">
-                <div class="message-text">${text}</div>
+                <div class="message-text"></div>
             </div>
         `;
+        // textContent, not innerHTML: visitor input and model output must never run as HTML.
+        messageDiv.querySelector('.message-text').textContent = text;
     }
     
     chatMessages.appendChild(messageDiv);
@@ -1299,18 +1301,17 @@ async function sendMessage() {
             headers: {
                 'Content-Type': 'application/json'
             },
+            // Model and limits are pinned in the Cloudflare Worker (worker.js).
             body: JSON.stringify({
-                model: 'llama-3.1-8b-instant',
-                messages: [{ role: 'user', content: SIDHANT_CONTEXT + "\n\nUser question: " + message + "\n\nPlease provide a helpful response about Sidhant Kumar based on the context provided above. Keep your response professional and informative." }],
-                max_tokens: 500,
-                temperature: 0.7
+                system: SIDHANT_CONTEXT + "\n\nAnswer questions about Sidhant Kumar using the information above. Keep responses professional, informative, and concise. Reply in plain text only: no markdown, tables, asterisks, or headings. Use short paragraphs, and simple dashes for lists.",
+                question: message
             })
         });
 
         const data = await response.json();
+        const aiResponse = data.choices?.[0]?.message?.content?.trim();
 
-        if (response.ok && data.choices && data.choices[0]) {
-            const aiResponse = data.choices[0].message.content;
+        if (response.ok && aiResponse) {
             loadingMessage.remove();
             addMessage('AI', aiResponse);
         } else {

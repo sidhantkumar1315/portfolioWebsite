@@ -26,7 +26,7 @@ A macOS-inspired interactive portfolio built with vanilla HTML, CSS, and JavaScr
 | UI | Vanilla HTML5, CSS3 (custom properties, grid, flexbox) |
 | Logic | Vanilla JavaScript (ES6+) |
 | Email | EmailJS |
-| AI Chat | Groq API (llama-3.1-8b-instant) |
+| AI Chat | Groq API (openai/gpt-oss-20b) via Cloudflare Worker proxy |
 | Icons | Font Awesome 6 |
 | Deployment | GitHub Pages |
 
